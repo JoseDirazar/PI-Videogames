@@ -1,0 +1,426 @@
+{
+    "id": 2,
+    "slug": "extreme-exorcism",
+    "name": "Extreme Exorcism",
+    "name_original": "Extreme Exorcism",
+    "description": "<strong>Extreme Exorcism</strong> is a paranormal platformer where every move you make comes back to haunt you.<br/><br/>Take on the role of Mae Barrons; an Extreme Exorcist with extreme measures. Her supernatural skills are called upon when everything and everyone else has failed to rid a haunted house of its ghostly presence.<br/><br/>Conventional methods won’t cut it with these ghosts. Instead, Mae comes armed with a deadly arsenal of ghost-busting weapons, from rocket launchers to razor sharp boomerangs.<br/>But these aren’t your average poltergeists. At the end of each round, a ghost appears and mimics your every move from the round before. The longer you survive the more extreme the game becomes.<br/><br/>Engage in non-stop ghost annihilation in 10 eerie areas of the haunted house – each room presenting its own hellish hazard. Brave the winds on the balcony and the fire in the kitchen, surviving for as long as you can. <br/><br/>With a devilish local multiplayer – you can play co-op or deathmatch modes with up to 3 of your friends, and with 50 unique challenges even the most daring Extreme Exorcist will be put to the test.",
+    "metacritic": 75,
+    "metacritic_platforms": [
+      
+    ],
+    "released": "2015-09-23",
+    "tba": false,
+    "updated": "2023-01-29T21:55:12",
+    "background_image": "https://media.rawg.io/media/screenshots/67d/67d0e74fd74fd2ea9b847856fb388736.jpg",
+    "background_image_additional": "https://media.rawg.io/media/screenshots/d87/d872092cdd1153b6d0498ba5625cab20.jpg",
+    "website": "http://extremeexorcism.com",
+    "rating": 2.72,
+    "rating_top": 3,
+    "ratings": [
+      {
+        "id": 3,
+        "title": "meh",
+        "count": 28,
+        "percent": 46.67
+      },
+      {
+        "id": 1,
+        "title": "skip",
+        "count": 17,
+        "percent": 28.33
+      },
+      {
+        "id": 4,
+        "title": "recommended",
+        "count": 13,
+        "percent": 21.67
+      },
+      {
+        "id": 5,
+        "title": "exceptional",
+        "count": 2,
+        "percent": 3.33
+      }
+    ],
+    "reactions": {
+      "8": 1
+    },
+    "added": 390,
+    "added_by_status": {
+      "yet": 35,
+      "owned": 315,
+      "beaten": 11,
+      "toplay": 1,
+      "dropped": 26,
+      "playing": 2
+    },
+    "playtime": 3,
+    "screenshots_count": 36,
+    "movies_count": 0,
+    "creators_count": 0,
+    "achievements_count": 65,
+    "parent_achievements_count": 16,
+    "reddit_url": "",
+    "reddit_name": "",
+    "reddit_description": "",
+    "reddit_logo": "",
+    "reddit_count": 0,
+    "twitch_count": 32,
+    "youtube_count": 18099,
+    "reviews_text_count": 1,
+    "ratings_count": 59,
+    "suggestions_count": 432,
+    "alternative_names": [
+      
+    ],
+    "metacritic_url": "",
+    "parents_count": 0,
+    "additions_count": 0,
+    "game_series_count": 0,
+    "user_game": null,
+    "reviews_count": 60,
+    "saturated_color": "0f0f0f",
+    "dominant_color": "0f0f0f",
+    "parent_platforms": [
+      {
+        "platform": {
+          "id": 1,
+          "name": "PC",
+          "slug": "pc"
+        }
+      },
+      {
+        "platform": {
+          "id": 2,
+          "name": "PlayStation",
+          "slug": "playstation"
+        }
+      },
+      {
+        "platform": {
+          "id": 3,
+          "name": "Xbox",
+          "slug": "xbox"
+        }
+      },
+      {
+        "platform": {
+          "id": 5,
+          "name": "Apple Macintosh",
+          "slug": "mac"
+        }
+      },
+      {
+        "platform": {
+          "id": 7,
+          "name": "Nintendo",
+          "slug": "nintendo"
+        }
+      }
+    ],
+    "platforms": [
+      {
+        "platform": {
+          "id": 10,
+          "name": "Wii U",
+          "slug": "wii-u",
+          "image": null,
+          "year_end": null,
+          "year_start": null,
+          "games_count": 1147,
+          "image_background": "https://media.rawg.io/media/games/f3e/f3eec35c6218dcfd93a537751e6bfa61.jpg"
+        },
+        "released_at": "2015-09-23",
+        "requirements": {
+          
+        }
+      },
+      {
+        "platform": {
+          "id": 16,
+          "name": "PlayStation 3",
+          "slug": "playstation3",
+          "image": null,
+          "year_end": null,
+          "year_start": null,
+          "games_count": 3180,
+          "image_background": "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg"
+        },
+        "released_at": null,
+        "requirements": {
+          
+        }
+      },
+      {
+        "platform": {
+          "id": 18,
+          "name": "PlayStation 4",
+          "slug": "playstation4",
+          "image": null,
+          "year_end": null,
+          "year_start": null,
+          "games_count": 6664,
+          "image_background": "https://media.rawg.io/media/games/8a0/8a02f84a5916ede2f923b88d5f8217ba.jpg"
+        },
+        "released_at": "2015-09-23",
+        "requirements": {
+          
+        }
+      },
+      {
+        "platform": {
+          "id": 4,
+          "name": "PC",
+          "slug": "pc",
+          "image": null,
+          "year_end": null,
+          "year_start": null,
+          "games_count": 514098,
+          "image_background": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg"
+        },
+        "released_at": "2015-09-23",
+        "requirements": {
+          "minimum": "Minimum:\nOS: Windows 7 64Bit\nProcessor: Intel Pentium Dual Core E5400 2.7GHz\nMemory: 4 GB RAM\nGraphics: AMD Radeon HD 3830\nDirectX: Version 9.0c\nNetwork: Broadband Internet connection\nStorage: 250 MB available space"
+        }
+      },
+      {
+        "platform": {
+          "id": 1,
+          "name": "Xbox One",
+          "slug": "xbox-one",
+          "image": null,
+          "year_end": null,
+          "year_start": null,
+          "games_count": 5534,
+          "image_background": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+        },
+        "released_at": "2015-09-23",
+        "requirements": {
+          
+        }
+      },
+      {
+        "platform": {
+          "id": 5,
+          "name": "macOS",
+          "slug": "macos",
+          "image": null,
+          "year_end": null,
+          "year_start": null,
+          "games_count": 101664,
+          "image_background": "https://media.rawg.io/media/games/ee3/ee3e10193aafc3230ba1cae426967d10.jpg"
+        },
+        "released_at": "2015-09-23",
+        "requirements": {
+          "minimum": "Minimum:\nOS: OS X Lion 10.7.4\nProcessor: Intel Core 2 Duo\nMemory: 2 GB RAM\nNetwork: Broadband Internet connection\nStorage: 250 MB available space"
+        }
+      }
+    ],
+    "stores": [
+      {
+        "id": 3356,
+        "url": "",
+        "store": {
+          "id": 3,
+          "name": "PlayStation Store",
+          "slug": "playstation-store",
+          "domain": "store.playstation.com",
+          "games_count": 7825,
+          "image_background": "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
+        }
+      },
+      {
+        "id": 18705,
+        "url": "",
+        "store": {
+          "id": 1,
+          "name": "Steam",
+          "slug": "steam",
+          "domain": "store.steampowered.com",
+          "games_count": 76952,
+          "image_background": "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg"
+        }
+      },
+      {
+        "id": 28116,
+        "url": "",
+        "store": {
+          "id": 6,
+          "name": "Nintendo Store",
+          "slug": "nintendo",
+          "domain": "nintendo.com",
+          "games_count": 8877,
+          "image_background": "https://media.rawg.io/media/screenshots/88b/88b5f27f07d6ca2f8a3cd0b36e03a670.jpg"
+        }
+      },
+      {
+        "id": 2,
+        "url": "",
+        "store": {
+          "id": 2,
+          "name": "Xbox Store",
+          "slug": "xbox-store",
+          "domain": "microsoft.com",
+          "games_count": 4767,
+          "image_background": "https://media.rawg.io/media/games/16b/16b1b7b36e2042d1128d5a3e852b3b2f.jpg"
+        }
+      }
+    ],
+    "developers": [
+      {
+        "id": 9559,
+        "name": "Golden Ruby Games",
+        "slug": "golden-ruby-games",
+        "games_count": 1,
+        "image_background": "https://media.rawg.io/media/screenshots/67d/67d0e74fd74fd2ea9b847856fb388736.jpg"
+      }
+    ],
+    "genres": [
+      {
+        "id": 4,
+        "name": "Action",
+        "slug": "action",
+        "games_count": 173322,
+        "image_background": "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Adventure",
+        "slug": "adventure",
+        "games_count": 133025,
+        "image_background": "https://media.rawg.io/media/games/709/709bf81f874ce5d25d625b37b014cb63.jpg"
+      },
+      {
+        "id": 40,
+        "name": "Casual",
+        "slug": "casual",
+        "games_count": 45478,
+        "image_background": "https://media.rawg.io/media/screenshots/6fe/6fe228662a253cd929cc78a103541ee0.jpg"
+      },
+      {
+        "id": 51,
+        "name": "Indie",
+        "slug": "indie",
+        "games_count": 53820,
+        "image_background": "https://media.rawg.io/media/games/5be/5bec14622f6faf804a592176577c1347.jpg"
+      }
+    ],
+    "tags": [
+      {
+        "id": 31,
+        "name": "Singleplayer",
+        "slug": "singleplayer",
+        "language": "eng",
+        "games_count": 206693,
+        "image_background": "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+      },
+      {
+        "id": 40847,
+        "name": "Steam Achievements",
+        "slug": "steam-achievements",
+        "language": "eng",
+        "games_count": 30894,
+        "image_background": "https://media.rawg.io/media/games/6cd/6cd653e0aaef5ff8bbd295bf4bcb12eb.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Multiplayer",
+        "slug": "multiplayer",
+        "language": "eng",
+        "games_count": 35146,
+        "image_background": "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg"
+      },
+      {
+        "id": 40836,
+        "name": "Full controller support",
+        "slug": "full-controller-support",
+        "language": "eng",
+        "games_count": 14502,
+        "image_background": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"
+      },
+      {
+        "id": 7808,
+        "name": "steam-trading-cards",
+        "slug": "steam-trading-cards",
+        "language": "eng",
+        "games_count": 7571,
+        "image_background": "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"
+      },
+      {
+        "id": 18,
+        "name": "Co-op",
+        "slug": "co-op",
+        "language": "eng",
+        "games_count": 9911,
+        "image_background": "https://media.rawg.io/media/games/ec3/ec3a7db7b8ab5a71aad622fe7c62632f.jpg"
+      },
+      {
+        "id": 411,
+        "name": "cooperative",
+        "slug": "cooperative",
+        "language": "eng",
+        "games_count": 4110,
+        "image_background": "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg"
+      },
+      {
+        "id": 45,
+        "name": "2D",
+        "slug": "2d",
+        "language": "eng",
+        "games_count": 188311,
+        "image_background": "https://media.rawg.io/media/games/14a/14a83c56ff668baaced6e8c8704b6391.jpg"
+      },
+      {
+        "id": 16,
+        "name": "Horror",
+        "slug": "horror",
+        "language": "eng",
+        "games_count": 42002,
+        "image_background": "https://media.rawg.io/media/games/9dd/9ddabb34840ea9227556670606cf8ea3.jpg"
+      },
+      {
+        "id": 40850,
+        "name": "Steam Leaderboards",
+        "slug": "steam-leaderboards",
+        "language": "eng",
+        "games_count": 5897,
+        "image_background": "https://media.rawg.io/media/games/310/3106b0e012271c5ffb16497b070be739.jpg"
+      },
+      {
+        "id": 198,
+        "name": "Split Screen",
+        "slug": "split-screen",
+        "language": "eng",
+        "games_count": 5634,
+        "image_background": "https://media.rawg.io/media/games/c47/c4796c4c49e7e06ad328e07aa8944cdd.jpg"
+      },
+      {
+        "id": 122,
+        "name": "Pixel Graphics",
+        "slug": "pixel-graphics",
+        "language": "eng",
+        "games_count": 90354,
+        "image_background": "https://media.rawg.io/media/games/6d9/6d92d50affeebf2eb3894d178eb1117e.jpg"
+      },
+      {
+        "id": 11669,
+        "name": "stats",
+        "slug": "stats",
+        "language": "eng",
+        "games_count": 4508,
+        "image_background": "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg"
+      }
+    ],
+    "publishers": [
+      {
+        "id": 752,
+        "name": "Ripstone",
+        "slug": "ripstone",
+        "games_count": 18,
+        "image_background": "https://media.rawg.io/media/screenshots/6c6/6c64def73d50f35d48607c6e3da4a480.jpeg"
+      }
+    ],
+    "esrb_rating": null,
+    "clip": null,
+    "description_raw": "Extreme Exorcism is a paranormal platformer where every move you make comes back to haunt you.\nTake on the role of Mae Barrons; an Extreme Exorcist with extreme measures. Her supernatural skills are called upon when everything and everyone else has failed to rid a haunted house of its ghostly presence.\nConventional methods won’t cut it with these ghosts. Instead, Mae comes armed with a deadly arsenal of ghost-busting weapons, from rocket launchers to razor sharp boomerangs.\nBut these aren’t your average poltergeists. At the end of each round, a ghost appears and mimics your every move from the round before. The longer you survive the more extreme the game becomes.\nEngage in non-stop ghost annihilation in 10 eerie areas of the haunted house – each room presenting its own hellish hazard. Brave the winds on the balcony and the fire in the kitchen, surviving for as long as you can.\nWith a devilish local multiplayer – you can play co-op or deathmatch modes with up to 3 of your friends, and with 50 unique challenges even the most daring Extreme Exorcist will be put to the test."
+  }
