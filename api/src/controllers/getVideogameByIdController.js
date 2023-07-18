@@ -11,10 +11,18 @@ async function getVideogameByIdController(req,res) {
         
         if(!busquedaenDB) {
             const videogameFromDb = await Videogame.create(videogame)
-            //await videogameFromDb.genres.addGenres(genres)
-            return res.status(200).json(videogame)
+            await videogameFromDb.addGenres(genres)
+            const videogamesWithGenres = await Videogame.findByPk(videogame.id,{
+                include: [
+                  {
+                    model: Genres,  
+                    attributes: ["nombre"],
+                  },
+                ],
+              });
+            return res.status(200).json(videogamesWithGenres)
             
-        } else {
+        } else {        
             return res.status(200).json(videogame)
             
         }

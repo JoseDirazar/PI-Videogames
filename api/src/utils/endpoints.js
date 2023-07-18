@@ -8,30 +8,32 @@ async function getVideogames() {
   try {
     const { data } = await axios.get(`${URL}games?key=${API_KEY}`);
     const mergedArray = [];
-    //console.log(mergedArray)
+    const genresArray = []
+
     data.results.forEach((videogame) => {
-      /* const platforms = []
-           for (let j = 0; j < data.results.platforms.length; j++) {
-               platforms.push(data.results.platforms[j].platform.name)
-               
-           } */
       const videogameBoilerplate = {
         id: videogame.id,
         nombre: videogame.name,
         descripcion: null,
-        plataformas: null,
+        plataformas_padres: videogame.parent_platforms.map(p=>p.platform.name),
+        plataformas: videogame.platforms.map(p=>p.platform.name),
         imagen: videogame.background_image,
+        imagenAlt: videogame.background_image_additional,
+        website: videogame.website,
         fecha_lanzamiento: videogame.released,
         rating: videogame.rating,
-        //genres: videogame.genres.map(genre=>genre.id)
+        genres: videogame.genres.map(genre=>genre.name)
       };
-      //console.log(videogame)
+      //console.log(genresArray)
       mergedArray.push(videogameBoilerplate);
+      //genresArray.push(videogame.genres.map(g=>g.id))
     });
-
-    return mergedArray;
+    
+    
+    
+    return mergedArray/* [mergedArray, genresArray] */;
   } catch (error) {
-    throw new Error(error)
+    throw new Error({error})
   }
 }
 
@@ -49,8 +51,8 @@ async function getVideogameById(id) {
       fecha_lanzamiento: data.released,
       
     }
-    /* const genres = 
-    console.log(genres) */
+    const genres = data.genres.map(genre => genre.id) 
+    console.log(genres)
     return [videogame,genres];
     
   } catch (error) {
@@ -62,8 +64,8 @@ async function getVideogameById(id) {
 async function searchVideogame(videogameName) {
   try {
     const { data } = await axios.get(`${URL}games?search=${videogameName}&key=${API_KEY}`);
-    console.log(data.results)
-    let videogame = data.results.map(videogame => ({
+    //console.log(data.results)
+    let arrayOfSearchGame = data.results.map(videogame => ({
       id: videogame.id,
       nombre: videogame.name,
       imagen: videogame.background_image,
@@ -71,9 +73,10 @@ async function searchVideogame(videogameName) {
       fecha_lanzamiento: videogame.released,
       plataformas: videogame.platforms.map(platforms => platforms.platform.name),
       //genres: videogame.genres.map(genre => genre.id),
-    }));
+    }));  
     //console.log(videogame)
-    return videogame
+    const genresOfFirstResult = data.results[0].genres.map(genre=>genre.id)
+    return [arrayOfSearchGame, genresOfFirstResult]
   } catch (error) {
     throw new Error(error)
   }

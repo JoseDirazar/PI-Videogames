@@ -3,7 +3,7 @@ const { Videogame } = require("../db")
 
 async function postVideogameController(req,res) {
     try {
-        const { id, nombre, descripcion, plataformas, imagen, fecha_lanzamiento, rating } = req.body
+        const { id, nombre, descripcion, plataformas, imagen, fecha_lanzamiento, rating, genres } = req.body
 
         const videogame = {
             id,
@@ -12,7 +12,7 @@ async function postVideogameController(req,res) {
             plataformas,
             imagen,
             fecha_lanzamiento,
-            rating
+            rating,
         }
         const siYaExiste = await Videogame.findOne({
             where:{
@@ -21,7 +21,8 @@ async function postVideogameController(req,res) {
         })
         
         if(!siYaExiste) {
-            await Videogame.create(videogame)
+            const gameCreated = await Videogame.create(videogame)
+            await gameCreated.addGenres(genres)
             return res.status(200).json({message: 'Videojuego creado!.'})
         } else {
             return res.status(404).json({error: 'El videojuego que intentas crear, ya existe.'})      
