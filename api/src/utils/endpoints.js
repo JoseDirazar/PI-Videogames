@@ -23,7 +23,7 @@ async function getVideogames() {
         imagen: videogame.background_image,
         fecha_lanzamiento: videogame.released,
         rating: videogame.rating,
-        genres: videogame.genres.map(genre=>genre.id)
+        //genres: videogame.genres.map(genre=>genre.id)
       };
       //console.log(videogame)
       mergedArray.push(videogameBoilerplate);
@@ -39,18 +39,22 @@ async function getVideogameById(id) {
   try {
     const { data } = await axios.get(`${URL}games/${id}?key=${API_KEY}`);
     //console.log(data)
-     return {
-        id: data.id,
-        nombre: data.name,
-        descripcion: data.description,
-        rating: data.rating,
-        plataformas: data.parent_platforms.map(platform => platform.platform.name),
-        imagen: data.background_image,
-        fecha_lanzamiento: data.released,
-        genres: data.genres.map(genre =>  genre.id)
-      };
+    const videogame = {
+      id: data.id,
+      nombre: data.name,
+      descripcion: data.description,
+      rating: data.rating,
+      plataformas: data.parent_platforms.map(platform => platform.platform.name),
+      imagen: data.background_image,
+      fecha_lanzamiento: data.released,
+      
+    }
+    /* const genres = 
+    console.log(genres) */
+    return [videogame,genres];
     
   } catch (error) {
+    console.log(error)
     throw new Error(error)
   }
 }
@@ -65,8 +69,8 @@ async function searchVideogame(videogameName) {
       imagen: videogame.background_image,
       rating: videogame.rating,
       fecha_lanzamiento: videogame.released,
-      plataformas: videogame.platforms.map(platforms => platforms.platform.id),
-      genres: videogame.genres.map(genre => genre.name),
+      plataformas: videogame.platforms.map(platforms => platforms.platform.name),
+      //genres: videogame.genres.map(genre => genre.id),
     }));
     //console.log(videogame)
     return videogame

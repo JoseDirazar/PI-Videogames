@@ -1,24 +1,26 @@
 const { getVideogameById } = require("../utils/endpoints")
-const { Videogame } = require("../db")
+const { Videogame, Genres} = require("../db")
 
 async function getVideogameByIdController(req,res) {
     try {
         const {idVideogame} = req.params
 
-        const resultApi = await getVideogameById(idVideogame)
+        const [videogame, genres] = await getVideogameById(idVideogame)
         
         const busquedaenDB = await Videogame.findByPk(idVideogame)
         
-        if(busquedaenDB) {
-            await Videogame.update(resultApi)
-            return res.status(200).json(resultApi)
+        if(!busquedaenDB) {
+            const videogameFromDb = await Videogame.create(videogame)
+            //await videogameFromDb.genres.addGenres(genres)
+            return res.status(200).json(videogame)
+            
         } else {
-            await Videogame.create(resultApi)
-            return res.status(200).json(resultApi)
+            return res.status(200).json(videogame)
+            
         }
         
     } catch (error) {
-        return res.status(404).json({error: error})
+        return res.status(404).json({error: error.message})
     }
     
 
