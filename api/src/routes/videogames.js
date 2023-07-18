@@ -1,15 +1,15 @@
 const {Router} = require("express")
 const router = Router()
-const {getVideogameByIdController, getVideogameByQueryController, getVideogamesController, postVideogameController} = require("../controllers/indexControllers")
-const {genresController} = require("../controllers/indexControllers")
+const {getVideogameByIdController, getVideogameByQueryController, getVideogamesController, postVideogameController, genresController} = require("../controllers/indexControllers")
+
 
 router.get("/videogames", getVideogamesController)
 
 router.get("/videogames/:idVideogame", getVideogameByIdController)
 
-router.get("/videogames", getVideogameByQueryController)
+router.get("/search", getVideogameByQueryController)
 
-router.post("/videogames", postVideogameController)
+router.post("/videogame", postVideogameController)
 
 router.get("/genres", genresController)
 

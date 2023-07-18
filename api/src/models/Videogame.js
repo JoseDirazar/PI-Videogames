@@ -15,13 +15,13 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     descripcion:{
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     plataformas:{
-      type: DataTypes.STRING/* ARRAY(DataTypes.STRING) */,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
-      /* defaultValue: [] */
+      defaultValue: [] 
     },
     imagen:{
       type: DataTypes.STRING,
@@ -36,6 +36,11 @@ module.exports = (sequelize) => {
     },
     rating:{
       type: DataTypes.FLOAT,
+      allowNull: true
+    },
+    genres:{
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      defaultValue: [],
       allowNull: true
     }
   },{

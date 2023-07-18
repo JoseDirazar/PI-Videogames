@@ -1,19 +1,20 @@
-require("dotenv").config();
 const { getVideogames } = require("../utils/endpoints")
 const { Videogame } = require("../db")
-const axios = require('axios')
-const {API_KEY} = process.env
-const URL = 'https://api.rawg.io/api/'
+
 
 async function getVideogamesController(req,res) {
     try {
         const videogamesArray = await getVideogames();
-        //await Videogame.bulkCreate(data)
-        //console.log(data)
-       
-        await Videogame.bulkCreate( videogamesArray )
+        const testingId = videogamesArray[0].id
+        console.log(testingId)
+        const seLlamoPreviamente = await Videogame.findByPk(testingId)
+        if(seLlamoPreviamente){
+            res.status(200).json(videogamesArray)
+        } else {
+            await Videogame.bulkCreate( videogamesArray )
+            return res.status(200).json({results: videogamesArray })
+        }
         
-        return res.status(200).json({results: videogamesArray })
         
     } catch (error) {
         console.log(error)
