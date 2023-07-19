@@ -6,34 +6,32 @@ const { API_KEY } = process.env;
 
 async function getVideogames() {
   try {
-    const { data } = await axios.get(`${URL}games?key=${API_KEY}`);
+    let totalResponse = []
+  
+    for (let i = 1; i < 6; i++) {
+      const { data } = await axios.get(`${URL}games?key=${API_KEY}&page=${i}`);
+      totalResponse = [...totalResponse, ...data.results]
+    }
+    
     const mergedArray = [];
-    const genresArray = []
-
-    data.results.forEach((videogame) => {
+    
+    totalResponse.forEach((videogame) => {
       const videogameBoilerplate = {
         id: videogame.id,
-        nombre: videogame.name,
-        descripcion: null,
+        nombre: videogame.name, 
         plataformas_padres: videogame.parent_platforms.map(p=>p.platform.name),
-        plataformas: videogame.platforms.map(p=>p.platform.name),
+        plataformas: videogame.platforms.map(p => p.platform.name),
         imagen: videogame.background_image,
-        imagenAlt: videogame.background_image_additional,
-        website: videogame.website,
         fecha_lanzamiento: videogame.released,
         rating: videogame.rating,
         genres: videogame.genres.map(genre=>genre.name)
       };
-      //console.log(genresArray)
-      mergedArray.push(videogameBoilerplate);
-      //genresArray.push(videogame.genres.map(g=>g.id))
+      mergedArray.push(videogameBoilerplate);  
     });
-    
-    
-    
+
     return mergedArray/* [mergedArray, genresArray] */;
   } catch (error) {
-    throw new Error({error})
+    throw new Error({error: error})
   }
 }
 
