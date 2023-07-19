@@ -17,7 +17,7 @@ async function getVideogameByQueryController(req,res) {
         if(!busquedaenDB) {
             const gameFromDb = await Videogame.create(searchedGame)
             await gameFromDb.addGenres(genresOfFirstResult)
-            return res.status(200).json(arrayOfSearchGame)
+            return res.status(200).json({results: arrayOfSearchGame})
         } else if(busquedaenDB) {
             res.status(200).json(busquedaenDB)
         } else {

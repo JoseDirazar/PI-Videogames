@@ -4,7 +4,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector"
 export default function Cards() {
     const { videogames, page } = useSelector((state) => state);
 
-    const cantCharPerPage = 14;
+    const cantCharPerPage = 15;
     let desde = (numPage - 1) * cantCharPerPage;
     let hasta = numPage * cantCharPerPage;
     let cantPage = Math.floor(characters.length / cantCharPerPage);
@@ -23,7 +23,7 @@ export default function Cards() {
                 imagen={videogame.imagen}
                 fecha_lanzamiento={videogame.fecha_lanzamiento}
                 rating={videogame.rating}
-                genres={(videogame.genres)}
+                genres={videogame.genres}
                 />)
             })}
         </div>

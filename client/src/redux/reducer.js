@@ -1,4 +1,4 @@
-import { ADD_GAMES, FILTER_GENRES, FILTER_NAMES, FILTER_RATING, RESET, PREV, NEXT } from "./actionTypes"
+import { ADD_GAMES, FILTER_GENRES, FILTER_NAMES, FILTER_RATING, RESET, PREV, NEXT, LOOKING } from "./actionTypes"
 const initialState = {
     videogames: [],
     videogamesBackUp: [],
@@ -36,6 +36,11 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 videogames: state.videogamesBackUp.filter(videogame => videogame.genres.find(genre => genre.name === payload))
+            }
+        case LOOKING: 
+            return {
+                ...state,
+                videogames: payload
             }
         case RESET:
             return {

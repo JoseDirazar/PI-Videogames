@@ -6,6 +6,7 @@ import {
   RESET,
   PREV,
   NEXT,
+  LOOKING
 } from "./actionTypes";
 import axios from "axios"
 
@@ -43,6 +44,22 @@ export function filterByGenres(genre) {
         payload: genre
     }
 } 
+
+export function searching(name) {
+    return async function(dispatch) {
+        try {
+            const { data } = await axios.get(`localhost:3001/search?name=${name}`)
+            return dispatch({
+                type: LOOKING,
+                payload: data.results
+            })
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+    re
+}
 export function reset() {
   return {
     type: RESET,
