@@ -29,7 +29,7 @@ async function getVideogames() {
       mergedArray.push(videogameBoilerplate);  
     });
 
-    return mergedArray/* [mergedArray, genresArray] */;
+    return mergedArray;
   } catch (error) {
     throw new Error({error: error})
   }

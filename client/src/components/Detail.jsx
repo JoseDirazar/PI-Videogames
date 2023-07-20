@@ -29,14 +29,18 @@ export default function Detail() {
         <div classnombre={style.text}>
           <h3>Id: {id}</h3>
           <h1>{videogame.nombre}</h1>
+          <p>Descripcion: {videogame.descripcion}</p>
           <h2>Plataformas: {videogame.plataformas}</h2>
           <p>Generos: {videogame.genres}</p>
           <p>Rating: {videogame.rating}</p>
           <p>Lanzamiento: {videogame.fecha_lanzamiento}</p>
+          <p>Desarrolladores: {videogame.desarrolladores}</p>
         </div>
         <div classnombre={style.img}>
           <img src={videogame.imagen} alt={videogame.nombre}></img>
+          <img src={videogame.imagen_extra} alt={videogame.nombre} />
         </div>
+        <div><p>Tiendas: {videogame.tiendas}</p></div>
       </div>
     )
     
