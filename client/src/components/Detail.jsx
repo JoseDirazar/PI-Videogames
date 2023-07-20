@@ -11,7 +11,7 @@ export default function Detail() {
     useEffect(() => {
         async function inEffect() {
             try {
-                const {data} = await axios.get(`localhost:3001/videogames/${id}`)
+                const {data} = await axios.get(`http://localhost:3001/videogames/${id}`)
                 if(data.nombre) {
                     setVideogame(data)
                 } 

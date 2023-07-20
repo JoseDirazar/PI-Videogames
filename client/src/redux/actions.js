@@ -6,18 +6,35 @@ import {
   RESET,
   PREV,
   NEXT,
-  LOOKING
+  LOOKING,
+  RELOAD,
+  POST_VIDEOGAME
 } from "./actionTypes";
 import axios from "axios"
 
-export const addVideogames = (videogames) => {
+export function postVideogame(videogameCreado) {
     return async function(dispatch) {
         try {
-            const {data} = await axios.get("localhost:3001/videogames")
-            return{
+            //console.log(videogameCreado)
+            await axios.post('http://localhost:3001/videogame', videogameCreado)
+            return dispatch({
+                type: POST_VIDEOGAME,
+                payload: videogameCreado
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+export function addVideogames(videogames) {
+    return async function(dispatch) {
+        try {
+            const {data} = await axios.get('http://localhost:3001/videogames')
+            
+            return dispatch({
                 type: ADD_GAMES,
                 payload: data.results
-            }
+            })
         } catch (error) {
             console.log(error)
         }
@@ -48,7 +65,15 @@ export function filterByGenres(genre) {
 export function searching(name) {
     return async function(dispatch) {
         try {
-            const { data } = await axios.get(`localhost:3001/search?name=${name}`)
+            if(/^\d+/.test(name)) {
+                const { data } = await axios.get(`http://localhost:3001/videogames/${name}`)
+                return dispatch({
+                    type: LOOKING,
+                    payload: [data]
+                })
+            }
+            const { data } = await axios.get(`http://localhost:3001/search?name=${name}`)
+            
             return dispatch({
                 type: LOOKING,
                 payload: data.results
@@ -58,7 +83,7 @@ export function searching(name) {
         }
 
     }
-    re
+    
 }
 export function reset() {
   return {
@@ -75,5 +100,11 @@ export function next() {
   return {
     type: NEXT,
   };
+}
+
+export function reload() {
+    return {
+        type: RELOAD,
+    }
 }
 

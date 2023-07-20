@@ -10,8 +10,10 @@ async function genresController(req,res) {
             await Genres.bulkCreate(genres)
             return res.status(200).json({genres: genres})
 
+        } else {
+            const genresOfDb = await Genres.findAll()
+            return res.status(200).json({genres: genresOfDb})
         }
-        return res.status(200).json({genres: genres})
     } catch (error) {
         return res.status(404).json({error: error.message})
     }

@@ -9,6 +9,7 @@ export default function SearchBar({ onSearch }) {
 
   function handleOnChange(event) {
     setName(event.target.value);
+  
   }
   function handleOnClick() {
     dispatch(searching(name));

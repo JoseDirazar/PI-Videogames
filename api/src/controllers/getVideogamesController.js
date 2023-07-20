@@ -7,7 +7,6 @@ async function getVideogamesController(req,res) {
         const videogamesArray = await getVideogames();
         
         /* const testingId = videogamesArray[0].id
-        
         const seLlamoPreviamente = await Videogame.findByPk(testingId)
         if(seLlamoPreviamente){
             return res.status(200).json(videogamesArray)
@@ -30,6 +29,7 @@ async function getVideogamesController(req,res) {
               });
             return res.status(200).json({results: videogamesWithGenres})
         } */
+
         if(videogamesArray) {
             return res.status(200).json({results: videogamesArray})
         }

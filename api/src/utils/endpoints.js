@@ -44,14 +44,12 @@ async function getVideogameById(id) {
       nombre: data.name,
       descripcion: data.description,
       rating: data.rating,
-      plataformas: data.parent_platforms.map(platform => platform.platform.name),
+      plataformas: data.platforms.map(platform => platform.platform.name).join(", "),
       imagen: data.background_image,
       fecha_lanzamiento: data.released,
-      
+      genres: data.genres.map(genre => genre.id).join(", ")
     }
-    const genres = data.genres.map(genre => genre.id) 
-    console.log(genres)
-    return [videogame,genres];
+    return videogame;
     
   } catch (error) {
     console.log(error)
@@ -69,13 +67,14 @@ async function searchVideogame(videogameName) {
       imagen: videogame.background_image,
       rating: videogame.rating,
       fecha_lanzamiento: videogame.released,
-      plataformas: videogame.platforms.map(platforms => platforms.platform.name),
-      //genres: videogame.genres.map(genre => genre.id),
+      plataformas: videogame.platforms.map(platforms => platforms.platform.name).join(", "),
+      genres: videogame.genres.map(genre => genre.name).join(", "),
     }));  
-    //console.log(videogame)
-    const genresOfFirstResult = data.results[0].genres.map(genre=>genre.id)
-    return [arrayOfSearchGame, genresOfFirstResult]
+    console.log(arrayOfSearchGame)
+    //const genresOfFirstResult = data.results[0].genres.map(genre=>genre.id)
+    return arrayOfSearchGame
   } catch (error) {
+    
     throw new Error(error)
   }
 }
