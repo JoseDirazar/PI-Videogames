@@ -17,9 +17,9 @@ async function getVideogameByIdController(req,res) {
           })
         
         if(busquedaenDB) {
-            //const videogameFromDb = await Videogame.create(videogame)
-            //await videogameFromDb.addGenres(genres)
-            /* const videogamesWithGenres = await Videogame.findByPk(videogame.id,{
+           /*  const videogameFromDb = await Videogame.create(videogame)
+            await videogameFromDb.addGenres(genres)
+            const videogamesWithGenres = await Videogame.findByPk(videogame.id,{
                 include: [
                   {
                     model: Genres,  

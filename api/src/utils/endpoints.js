@@ -46,8 +46,12 @@ async function getVideogameById(id) {
       rating: data.rating,
       plataformas: data.platforms.map(platform => platform.platform.name).join(", "),
       imagen: data.background_image,
+      imagen_extra: data.background_image_additional,
       fecha_lanzamiento: data.released,
-      genres: data.genres.map(genre => genre.id).join(", ")
+      genres: data.genres.map(genre => genre.name).join(", "),
+      desarrolladores: data.developers.map(dev => dev.name).join(", "),
+      tiendas: data.stores.map(arr => `${arr.store.name}: ${arr.store.domain}`)
+      /* requisitos: data.platforms.find(arr => arr.platform.name === "PC").requirements */
     }
     return videogame;
     
