@@ -17,7 +17,10 @@ export default function NavBar({ handleReload }) {
         <NavLink className={style.link}  to={"/create"}>
           Create
         </NavLink>
+        <div className="searchBar">
         <SearchBar />
+
+        </div>
       </div>
       
     </nav>

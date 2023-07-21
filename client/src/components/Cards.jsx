@@ -2,7 +2,7 @@ import Card from "./Card"
 import Paginate from "./Paginate"
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react";
-import { filterByName, filterByGenres, filterByRating } from "../redux/actions";
+import { filterByName, filterByGenres, filterByRating, reset} from "../redux/actions";
 import style from "./CSS/Cards.module.css"
 export default function Cards() {
     const { videogames, page } = useSelector((state) => state);
@@ -27,13 +27,16 @@ export default function Cards() {
     }
     function handleGenres(event) { 
             dispatch(filterByGenres(event.target.value))
-             
     }
 
     function handleRating(event) {
         dispatch(filterByRating(event.target.value))
     }
-  
+    
+    function handleReset() {
+        dispatch(reset())
+    }
+
     return(<div className={style.cardsContainer}>
         <div  className={style.filterOptions} >
 
@@ -70,6 +73,8 @@ export default function Cards() {
             <option value="DES">Descendente</option>
         </select>  
 
+        <button onClick={handleReset}>Inicio</button>
+        
         </div>
         <div className={style.cards}>
             {videoGamesPage.map((videogame, index) => {

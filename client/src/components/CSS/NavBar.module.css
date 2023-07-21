@@ -1,0 +1,15 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+}
+
+.searchBar{
+    padding: 4rem;
+    margin: 20px;
+}

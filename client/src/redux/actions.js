@@ -8,14 +8,15 @@ import {
   NEXT,
   LOOKING,
   RELOAD,
-  POST_VIDEOGAME
+  POST_VIDEOGAME,
+  
 } from "./actionTypes";
 import axios from "axios"
 
 export function postVideogame(videogameCreado) {
     return async function(dispatch) {
         try {
-            //console.log(videogameCreado)
+           
             await axios.post('http://localhost:3001/videogame', videogameCreado)
             return dispatch({
                 type: POST_VIDEOGAME,
@@ -26,7 +27,7 @@ export function postVideogame(videogameCreado) {
         }
     }
 }
-export function addVideogames(videogames) {
+export function addVideogames() {
     return async function(dispatch) {
         try {
             const {data} = await axios.get('http://localhost:3001/videogames')

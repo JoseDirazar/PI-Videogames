@@ -8,7 +8,7 @@ import About from "./components/About"
 
 import {Routes, Route, useLocation, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addVideogames, reload} from './redux/actions';
 import axios from "axios"
 

@@ -64,7 +64,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         videogames: genresToFilter.filter((videogame) =>
-          videogame.genres.find((genre) => genre.name === payload)
+          videogame.genres.find((genre) => genre === payload)
         ),
       };
     case LOOKING:
