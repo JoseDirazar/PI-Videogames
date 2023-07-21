@@ -55,7 +55,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         videogames:
-          payload === "Rating"
+          payload === "DES"
             ? ratingToFilter.sort((a, z) => z.rating - a.rating)
             : ratingToFilter.sort((a, z) => a.rating - z.rating),
       };

@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     
     !accessHome && navigate("/")
-  },[accessHome])
+  },[accessHome, navigate])
 
   useEffect(() => {
     dispatch(addVideogames())

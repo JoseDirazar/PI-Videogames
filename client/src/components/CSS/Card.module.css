@@ -1,0 +1,18 @@
+.cardContainer {
+    width: 300px;
+    padding-top: 5rem;
+    text-align: center;
+    background-color: brown;
+    margin: 1rem
+}
+
+.imagen{
+    width: 250px;
+    height: 175px;
+    overflow: hidden;
+
+}
+
+.nombre {
+    font-size: 0.8rem;
+}
