@@ -25,8 +25,8 @@ export default function Cards() {
         //setAux(!aux)
         
     }
-    function handleGenres(event) { 
-            dispatch(filterByGenres(event.target.value))
+    function handleGenres(event) {      
+        dispatch(filterByGenres(event.target.value))      
     }
 
     function handleRating(event) {
@@ -48,6 +48,7 @@ export default function Cards() {
         
         <label htmlFor="genero">Ordenar por Genero </label>
         <select name="genero" onChange={handleGenres}>
+            <option value="Action">Action</option>
             <option value="Inide">Inide</option>
             <option value="Adventure">Adventure</option>
             <option value="RPG">RPG</option>

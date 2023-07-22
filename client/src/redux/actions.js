@@ -1,3 +1,4 @@
+import { generatePath } from "react-router-dom";
 import {
   ADD_GAMES,
   FILTER_GENRES,
@@ -56,17 +57,45 @@ export function filterByRating(payload) {
     }
 }
 
-export function filterByGenres(genre) {
-    return {
-        type: FILTER_GENRES,
-        payload: genre
+export function filterByGenres(genreString) {
+    return async function(dispatch) {
+        try {
+            let {data} = await axios.get(`http://localhost:3001/dbsearch?nombreGenero=${genreString}`)
+            
+            if(Array.isArray(data) && data.length > 0) {
+                
+                data =  data[0].Videogames.map(function (videogame) {
+                    return {
+                      id: videogame.id,
+                      nombre: videogame.nombre,
+                      fecha_lanzamiento: videogame.fecha_lanzamiento,
+                      imagen: videogame.imagen,
+                      rating: videogame.rating,
+                      description: videogame.description,
+                      plataformas: videogame.plataformas,
+                      genres: genreString, // Asigna el nombre del género asociado al objeto final
+                    };
+                  })
+                
+                return dispatch({
+                    type: FILTER_GENRES,
+                    payload: [genreString, data]
+                })
+            }
+            return dispatch({
+                type: FILTER_GENRES,
+                payload: genreString
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 } 
 
 export function searching(name) {
     return async function(dispatch) {
         try {
-            if(/^\d+/.test(name)) {
+            if(/^\d+/.test(name)) { // name = un id
                 const { data } = await axios.get(`http://localhost:3001/videogames/${name}`)
                 return dispatch({
                     type: LOOKING,

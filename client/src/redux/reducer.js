@@ -60,13 +60,23 @@ const reducer = (state = initialState, { type, payload }) => {
             : ratingToFilter.sort((a, z) => a.rating - z.rating),
       };
     case FILTER_GENRES:
-      const genresToFilter = state.videogamesBackUp
-      return {
+      let genresToFilter = state.videogamesBackUp
+      if(Array.isArray(payload)) {
+        genresToFilter = genresToFilter.filter((videogame) => videogame.genres.find((genre) => genre === payload[0]))
+        
+        return {
+          ...state,
+          videogames: [...genresToFilter, ...payload[1]]
+        }
+      } else {
+        
+        return {
         ...state,
         videogames: genresToFilter.filter((videogame) =>
           videogame.genres.find((genre) => genre === payload)
         ),
       };
+      }
     case LOOKING:
       return {
         ...state,
