@@ -7,8 +7,9 @@ export default function Card({id, nombre, plataformas, imagen, fecha_lanzamiento
         <img src={imagen} alt={nombre} className={style.imagen} />
         <h5 className={style.nombre}>{nombre}</h5>
         <h3>Rating:{rating}</h3>
-        {/* <h3>Lanzamiento: {fecha_lanzamiento}</h3>
-        <h3>Generos: {genres}</h3> */}
+        <h3>Lanzamiento: {fecha_lanzamiento}</h3>
+        <h3>Generos: {genres}</h3>
         <h5>Generos: {genres}</h5>
+        <p>plataformas: {plataformas}</p>
     </div></NavLink>)
 }
