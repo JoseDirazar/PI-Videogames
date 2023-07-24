@@ -3,11 +3,11 @@ const {DataTypes, Sequelize} = require ('sequelize')
 
 module.exports = ( sequelize ) => {
     sequelize.define('Users', {
-        id: {
+        /* id: {
             type: DataTypes.INTEGER,
             auroIncrement: true,
             primaryKey: true,
-        },
+        }, */
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -17,5 +17,7 @@ module.exports = ( sequelize ) => {
             type: DataTypes.STRING,
             allowNull: false
         }
+    },{
+        timestamps: false
     })
 }

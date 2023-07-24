@@ -1,10 +1,16 @@
-require("dotenv").config();
-const { JWT } = process.env;
-const { Users } = require("../db");
-
 const { Router } = require("express");
 const router = Router();
+const {singUpUser, loginUser, protected} = require("../controllers/users")
 
+router.post("/singup", singUpUser)
+
+router.post('/login', loginUser)
+
+router.get("/protecteduser", protected)
+
+/* require("dotenv").config();
+const { JWT } = process.env;
+const { Users } = require("../db");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -72,19 +78,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-/* router.get("/protected", async (req, res) => {
-    const token = req.headers.authorization?.split(" ")[1];
-    if (!token) {
-      return res.status(401).send({ message: "No se proporcionó un token." });
-    }
-  
-    try {
-      const decodedToken = await jwt.verify(token, JWT);
-      res.send({ message: "Solicitud exitosa.", userId: decodedToken.userId });
-    } catch (error) {
-      return res.status(401).send({ message: "Token inválido." });
-    }
-  }); */
 
 router.get("/protected", async (req, res) => {
   const token = req.headers.authorization?.split(" ")[1];
@@ -98,6 +91,6 @@ router.get("/protected", async (req, res) => {
   } catch (error) {
     return res.status(401).send({ message: "Token inválido." });
   }
-});
+}); */
 
 module.exports = router;
