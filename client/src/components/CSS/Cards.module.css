@@ -9,3 +9,16 @@
     justify-content: center;
 
 }
+
+.filterOptions{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.options{
+    margin-left: 20px;
+    margin-right: 20px
+}

@@ -1,4 +1,3 @@
-import { generatePath } from "react-router-dom";
 import {
   ADD_GAMES,
   FILTER_GENRES,
@@ -28,6 +27,7 @@ export function postVideogame(videogameCreado) {
         }
     }
 }
+
 export function addVideogames() {
     return async function(dispatch) {
         try {
@@ -73,7 +73,7 @@ export function filterByGenres(genreString) {
                       rating: videogame.rating,
                       description: videogame.description,
                       plataformas: videogame.plataformas,
-                      genres: genreString, // Asigna el nombre del género asociado al objeto final
+                      genres: videogame.genres, // Asigna el nombre del género asociado al objeto final
                     };
                   })
                 

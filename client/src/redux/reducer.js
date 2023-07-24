@@ -39,7 +39,7 @@ const reducer = (state = initialState, { type, payload }) => {
         videogamesBackUp: [payload, ...state.videogamesBackUp],
       };
     case FILTER_NAMES:
-      const namesToFilter = state.videogamesBackUp
+      const namesToFilter = state.videogames
       return {
         ...state,
         videogames:
@@ -51,7 +51,7 @@ const reducer = (state = initialState, { type, payload }) => {
             : namesToFilter.sort((a, z) => z.nombre.localeCompare(a.nombre)),
       };
     case FILTER_RATING:
-      const ratingToFilter = state.videogamesBackUp
+      const ratingToFilter = state.videogames
       return {
         ...state,
         videogames:
@@ -60,7 +60,7 @@ const reducer = (state = initialState, { type, payload }) => {
             : ratingToFilter.sort((a, z) => a.rating - z.rating),
       };
     case FILTER_GENRES:
-      let genresToFilter = state.videogamesBackUp
+      let genresToFilter = [...state.videogamesBackUp]
       if(Array.isArray(payload)) {
         genresToFilter = genresToFilter.filter((videogame) => videogame.genres.find((genre) => genre === payload[0]))
         

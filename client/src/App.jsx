@@ -41,7 +41,7 @@ function App() {
         console.log(error)
       }
     })()
-  })
+  }, [])
   
   function handleReload() {
     dispatch(reload())
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== "/" && <NavBar handleReload={handleReload} />}
+      {(location.pathname !== "/") && <NavBar handleReload={handleReload} />}
       <Routes>
         <Route path="/" element={<LandingPage goingHome={goingHome} />}/>
         <Route path="/home" element={<Cards  />} />

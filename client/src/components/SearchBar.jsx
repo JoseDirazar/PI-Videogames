@@ -16,10 +16,16 @@ export default function SearchBar({ onSearch }) {
     setName("");
   }
 
+  function handleOnKeyPress(event) {
+    if (event.key === "Enter") {
+      handleOnClick();
+    }
+  }
+
   return (
     <div>
-      <input type="search" value={name} onChange={handleOnChange} />
-      <button onClick={handleOnClick}>Buscar</button>
+      <input type="search" value={name} onChange={handleOnChange} onKeyDown={handleOnKeyPress} />
+      <button onClick={handleOnClick} /* onClick={() => handleOnClick()} */>Buscar</button>
     </div>
   );
 }

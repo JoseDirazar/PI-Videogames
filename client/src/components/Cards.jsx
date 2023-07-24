@@ -40,12 +40,15 @@ export default function Cards() {
     return(<div className={style.cardsContainer}>
         <div  className={style.filterOptions} >
 
+        <div className={style.options}>
         <label htmlFor="a-z">Ordenar A - Z </label>
         <select name="a-z" onChange={handleOrder}>
             <option value="A"> A - Z </option>
             <option value="D"> Z - A </option>
         </select>
+        </div>
         
+        <div className={style.options} >
         <label htmlFor="genero">Ordenar por Genero </label>
         <select name="genero" onChange={handleGenres}>
             <option value="Action">Action</option>
@@ -67,16 +70,21 @@ export default function Cards() {
             <option value="Educational">Educational</option>
             <option value="Card">Card</option>
         </select>
+        </div>
 
+        <div className={style.options}>
         <label htmlFor="rating">Ordenar por Rating </label>
         <select name="rating" onChange={handleRating}>
             <option value="ASC">Ascendente</option>
             <option value="DES">Descendente</option>
         </select>  
 
+        </div>
+
         <button onClick={handleReset}>Inicio</button>
         
         </div>
+
         <div className={style.cards}>
             {videoGamesPage.map((videogame, index) => {
                 return(<Card 
@@ -91,6 +99,7 @@ export default function Cards() {
                 />)
             })}
         </div>
+
             <Paginate page={page} cantPage={cantPage} />
     </div>)
 }
