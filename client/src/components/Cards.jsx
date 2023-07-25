@@ -39,9 +39,9 @@ export default function Cards() {
 
     return(<div className={style.cardsContainer}>
         <div  className={style.filterOptions} >
-
+        <p>Ordenar por: </p>
         <div className={style.options}>
-        <label htmlFor="a-z">Ordenar A - Z </label>
+        <label htmlFor="a-z">Alfabeto </label>
         <select name="a-z" onChange={handleOrder}>
             <option value="A"> A - Z </option>
             <option value="D"> Z - A </option>
@@ -49,7 +49,7 @@ export default function Cards() {
         </div>
         
         <div className={style.options} >
-        <label htmlFor="genero">Ordenar por Genero </label>
+        <label htmlFor="genero">Genero </label>
         <select name="genero" onChange={handleGenres}>
             <option value="Action">Action</option>
             <option value="Inide">Inide</option>
@@ -73,7 +73,7 @@ export default function Cards() {
         </div>
 
         <div className={style.options}>
-        <label htmlFor="rating">Ordenar por Rating </label>
+        <label htmlFor="rating">Rating </label>
         <select name="rating" onChange={handleRating}>
             <option value="ASC">Ascendente</option>
             <option value="DES">Descendente</option>
@@ -81,7 +81,7 @@ export default function Cards() {
 
         </div>
 
-        <button onClick={handleReset}>Inicio</button>
+        <button onClick={handleReset}> Inicio </button>
         
         </div>
 

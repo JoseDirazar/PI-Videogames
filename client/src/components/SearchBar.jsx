@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { searching } from "../redux/actions";
+import style from './CSS/SearchBar.module.css'
 
 export default function SearchBar({ onSearch }) {
   let [name, setName] = useState("");
@@ -24,8 +25,8 @@ export default function SearchBar({ onSearch }) {
 
   return (
     <div>
-      <input type="search" value={name} onChange={handleOnChange} onKeyDown={handleOnKeyPress} />
-      <button onClick={handleOnClick} /* onClick={() => handleOnClick()} */>Buscar</button>
+      <input className={style.input} type="search" value={name} onChange={handleOnChange} onKeyDown={handleOnKeyPress} />
+      <button className={style.button} onClick={handleOnClick} /* onClick={() => handleOnClick()} */>Buscar</button>
     </div>
   );
 }
