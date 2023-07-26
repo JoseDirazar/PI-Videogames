@@ -1,56 +1,72 @@
-import Card from "./Card"
-import Paginate from "./Paginate"
-import { useDispatch, useSelector } from "react-redux"
+import Card from "./Card";
+import Paginate from "./Paginate";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { filterByName, filterByGenres, filterByRating, reset} from "../redux/actions";
-import style from "./CSS/Cards.module.css"
+import {
+  filterByName,
+  filterByGenres,
+  filterByRating,
+  reset,
+} from "../redux/actions";
+import style from "./CSS/Cards.module.css";
 export default function Cards() {
-    const { videogames, page } = useSelector((state) => state);
-    const [aux, setAux] = useState(false)
-    const dispatch = useDispatch()
+  const { videogames, page } = useSelector((state) => state);
+  const [aux, setAux] = useState(false);
+  const dispatch = useDispatch();
 
-    let videoGamesPage = videogames;
-    let cantPage = 1
-    if(videogames.length > 1) {
-        const cantCharPerPage = 15;
-        let desde = ( page - 1) * cantCharPerPage;
-        let hasta = page * cantCharPerPage;
+  let videoGamesPage = videogames;
+  let cantPage = 1;
+  if (videogames.length > 1) {
+    const cantCharPerPage = 15;
+    let desde = (page - 1) * cantCharPerPage;
+    let hasta = page * cantCharPerPage;
 
-        cantPage = Math.floor(videogames.length / cantCharPerPage);
-        videoGamesPage = videogames?.slice(desde, hasta)
-    }
-    
-    function handleOrder(event) {
-        dispatch(filterByName(event.target.value))
-        //setAux(!aux)
-        
-    }
-    function handleGenres(event) {      
-        dispatch(filterByGenres(event.target.value))      
-    }
+    cantPage = Math.floor(videogames.length / cantCharPerPage);
+    videoGamesPage = videogames?.slice(desde, hasta);
+  }
 
-    function handleRating(event) {
-        dispatch(filterByRating(event.target.value))
-    }
-    
-    function handleReset() {
-        dispatch(reset())
-    }
+  function handleOrder(event) {
+    dispatch(filterByName(event.target.value));
+    //setAux(!aux)
+  }
+  function handleGenres(event) {
+    dispatch(filterByGenres(event.target.value));
+  }
 
-    return(<div className={style.cardsContainer}>
-        <div  className={style.filterOptions} >
+  function handleRating(event) {
+    dispatch(filterByRating(event.target.value));
+  }
+
+  function handleReset() {
+    dispatch(reset());
+
+    const selectElements = document.getElementsByTagName("select");
+    for (let select of selectElements) {
+      select.selectedIndex = 0;
+    }
+  }
+
+  return (
+    <div className={style.cardsContainer}>
+      <div className={style.filterOptions}>
         <p>Ordenar por: </p>
         <div className={style.options}>
-        <label htmlFor="a-z">Alfabeto </label>
-        <select name="a-z" onChange={handleOrder}>
+          <label htmlFor="a-z">Alfabeto </label>
+          <select name="a-z" onChange={handleOrder} defaultValue="">
+            <option value="" disabled>
+              --Select--
+            </option>
             <option value="A"> A - Z </option>
             <option value="D"> Z - A </option>
-        </select>
+          </select>
         </div>
-        
-        <div className={style.options} >
-        <label htmlFor="genero">Genero </label>
-        <select name="genero" onChange={handleGenres}>
+
+        <div className={style.options}>
+          <label htmlFor="genero">Genero </label>
+          <select name="genero" onChange={handleGenres} defaultValue="">
+            <option value="" disabled>
+              --Select--
+            </option>
             <option value="Action">Action</option>
             <option value="Inide">Inide</option>
             <option value="Adventure">Adventure</option>
@@ -69,37 +85,41 @@ export default function Cards() {
             <option value="Board Games">Board Games</option>
             <option value="Educational">Educational</option>
             <option value="Card">Card</option>
-        </select>
+          </select>
         </div>
 
         <div className={style.options}>
-        <label htmlFor="rating">Rating </label>
-        <select name="rating" onChange={handleRating}>
+          <label htmlFor="rating">Rating </label>
+          <select name="rating" onChange={handleRating} defaultValue="">
+            <option value="" disabled>
+              --Select--
+            </option>
             <option value="ASC">Ascendente</option>
             <option value="DES">Descendente</option>
-        </select>  
-
+          </select>
         </div>
 
         <button onClick={handleReset}> Inicio </button>
-        
-        </div>
+      </div>
 
-        <div className={style.cards}>
-            {videoGamesPage.map((videogame, index) => {
-                return(<Card 
-                    key={index}
-                    id={videogame.id}
-                    nombre={videogame.nombre}
-                plataformas={videogame.plataformas}
-                imagen={videogame.imagen}
-                fecha_lanzamiento={videogame.fecha_lanzamiento}
-                rating={videogame.rating}
-                genres={videogame.genres}
-                />)
-            })}
-        </div>
+      <div className={style.cards}>
+        {videoGamesPage.map((videogame, index) => {
+          return (
+            <Card
+              key={index}
+              id={videogame.id}
+              nombre={videogame.nombre}
+              plataformas={videogame.plataformas}
+              imagen={videogame.imagen}
+              fecha_lanzamiento={videogame.fecha_lanzamiento}
+              rating={videogame.rating}
+              genres={videogame.genres}
+            />
+          );
+        })}
+      </div>
 
-            <Paginate page={page} cantPage={cantPage} />
-    </div>)
+      <Paginate page={page} cantPage={cantPage} />
+    </div>
+  );
 }

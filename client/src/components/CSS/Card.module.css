@@ -3,19 +3,19 @@
 }
 
 .cardContainer {
-  width: 300px;
-  height: 225px; /* Relación de aspecto 4:3 (1600x1200) */
+  width: 225px;
+  height: 200px; /* Relación de aspecto 4:3 (1600x1200) */
   text-align: center;
   background-color: rgb(0, 0, 0, 0.7);
   margin: 1rem;
-  border-radius: 50px 50px 50px 50px;
+  border-radius: 30px;
 
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.8em 0.2em 0em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-
+  
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -30,8 +30,8 @@ button:focus-visible {
 }
 
 .imagen {
-  width: 80%;
-  height: 80%;
+  width: calc(150px * 4/3);
+  height: 150px;
   padding-top: 5px;
   object-fit: cover;
   border-radius: 15px;
@@ -40,4 +40,6 @@ button:focus-visible {
 .nombre {
   font-size: 0.8rem;
   color: #e1e1e1;
+  margin: 0.2rem auto;
+  padding: 0  1em 0 1em
 }

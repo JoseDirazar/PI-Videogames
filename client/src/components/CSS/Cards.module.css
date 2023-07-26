@@ -24,3 +24,9 @@
     margin-left: 20px;
     margin-right: 20px
 }
+
+.options select{
+    background-color: rgba(49, 49, 49, 0.6);
+    color: white;
+    border-radius: 15px;
+}

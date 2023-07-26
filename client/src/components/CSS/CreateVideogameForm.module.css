@@ -3,9 +3,10 @@
     width: 250px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f8f8f8;
+    border: 1px solid #eeeeeed0;
+    border-radius: 40px;
+    background-color: #0d0d0d97;
+    
   }
   
   /* Estilos para el formulario */
@@ -24,10 +25,12 @@
   /* Estilos para los campos de entrada */
   .input {
     padding: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin-bottom: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.807);
+    border-radius: 20px;
     outline: none;
+    background-color: rgba(6, 6, 6, 0.8);
+    color: whitesmoke
   }
   
   /* Estilos para el campo de texto */
@@ -35,9 +38,12 @@
     padding: 8px;
     margin-bottom: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 20px;
+    height: 120px;
     outline: none;
     resize: vertical;
+    background-color: rgba(6, 6, 6, 0.8);
+    color: whitesmoke
   }
   
   /* Estilos para los mensajes de error */
@@ -63,5 +69,33 @@
   .button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+  }
+
+  .removeButton {
+
+    border-radius: 200px;
+    background-color: rgb(131, 0, 0, 0.5);
+    border: 2px solid rgb(131, 0, 0); /* Cambia el color del borde según tus preferencias */
+    font-weight: bolder;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: rgb(255, 1, 1)
+  }
+  
+  /* Estilo del botón cuando el cursor está encima */
+  .removeButton:hover {
+    background-color: red;
+    color: white; /* Cambia el color del texto cuando el cursor está encima */
+  }
+
+  .genreTag{
+    display: flex;
+    justify-content: space-between;
+    padding-left: -40px;
+    margin: 0
+  }
+
+  .unlistOptions{
+    background-color: rgba(0, 157, 255, 0.5);
   }
   
