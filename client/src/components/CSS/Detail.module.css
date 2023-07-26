@@ -31,7 +31,7 @@
   .description {
     grid-column: 2 / 3;
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgb(0, 0, 0, 0.7);
     border-radius: 8px;
     font-size: 1rem;
     line-height: 1.6;
@@ -41,7 +41,7 @@
   .extraData {
     grid-column: 2 / 3;
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgb(0, 0, 0, 0.7);
     border-radius: 8px;
     font-size: 1rem;
     color: #E1E1E1;
