@@ -98,7 +98,7 @@ export default function Cards() {
           </select>
         </div>
 
-        <button onClick={handleReset}> Inicio </button>
+        <button className={style.button} onClick={handleReset}> Inicio </button>
       </div>
 
       <div className={style.cards}>
