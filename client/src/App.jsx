@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     dispatch(addVideogames())
-  }, [])
+  }, [dispatch, addVideogames])
 
   useEffect(() => {
     (async function inEffect() {

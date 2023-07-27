@@ -6,16 +6,28 @@ const { API_KEY } = process.env;
 
 async function getVideogames() {
   try {
-    let totalResponse = []
-  
-    for (let i = 1; i < 6; i++) {
+    let response = [];
+    let allResponse = [];
+     response = await Promise.all([axios.get(`${URL}games?key=${API_KEY}&page=${1}`),
+       axios.get(`${URL}games?key=${API_KEY}&page=${2}`),
+       axios.get(`${URL}games?key=${API_KEY}&page=${3}`), 
+       axios.get(`${URL}games?key=${API_KEY}&page=${4}`),
+       axios.get(`${URL}games?key=${API_KEY}&page=${5}`)]);
+      
+       
+       response.forEach(element => {
+         allResponse = allResponse.concat(element.data.results);
+        });
+        
+       
+    /* for (let i = 1; i < 6; i++) {
       const { data } = await axios.get(`${URL}games?key=${API_KEY}&page=${i}`);
       totalResponse = [...totalResponse, ...data.results]
-    }
+    } */
     
     const mergedArray = [];
     
-    totalResponse.forEach((videogame) => {
+    allResponse.forEach((videogame) => {
       const videogameBoilerplate = {
         id: videogame.id,
         nombre: videogame.name, 
