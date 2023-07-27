@@ -14,7 +14,7 @@ export default function Detail() {
         async function inEffect() {
             try {
                 const {data} = await axios.get(`http://localhost:3001/videogames/${id}`)
-                console.log(data)
+                
                 if(data.plataformas.length > 1) data.plataformas = data.plataformas.join(", ")
                 if(data.genres.length > 1) data.genres = data.genres.join(", ")
                 if(data.desarrolladores.length > 1) data.desarrolladores = data.desarrolladores.join(", ")

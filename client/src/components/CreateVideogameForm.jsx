@@ -18,12 +18,12 @@ export default function CreateVideogameForm() {
     nombre: "",
     fecha_lanzamiento: "",
     plataformas: [],
-    rating: 0,
+    rating: "",
     generos: [],
     imagen: "",
     descripcion: "",
   });
-  console.log(inputs.generos, inputs.plataformas);
+  //console.log(inputs);
   const [errors, setErrors] = useState({
     nombre: "",
     fecha_lanzamiento: "",
@@ -69,8 +69,8 @@ export default function CreateVideogameForm() {
     }
     inputs.rating = Number(inputs.rating);
     inputs.id = Math.floor(Math.random() * 500) + 900000;
-    inputs.plataformas = inputs.plataformas.split(", ");
-
+    
+    
     //console.log(inputs);
     dispatch(postVideogame(inputs));
 
@@ -221,6 +221,7 @@ export default function CreateVideogameForm() {
             name="nombre"
             value={inputs.nombre}
             onChange={handleChange}
+            placeholder="Name:"
           />
           {errors.nombre ? (
             <p className={style.errors}>{errors.nombre}</p>
@@ -238,6 +239,7 @@ export default function CreateVideogameForm() {
             name="fecha_lanzamiento"
             value={inputs.fecha_lanzamiento}
             onChange={handleChange}
+            placeholder="27/7/23"
           />
           {errors.fecha_lanzamiento ? (
             <p className={style.errors}>{errors.fecha_lanzamiento}</p>
@@ -255,6 +257,7 @@ export default function CreateVideogameForm() {
             name="rating"
             value={inputs.rating}
             onChange={handleChange}
+            placeholder="0"
           />
           {errors.rating ? (
             <p className={style.errors}>{errors.rating}</p>
@@ -272,6 +275,7 @@ export default function CreateVideogameForm() {
             name="imagen"
             value={inputs.imagen}
             onChange={handleChange}
+            placeholder="http://www.url.com/myVideogame.png"
           />
           {errors.imagen ? (
             <p className={style.errors}>{errors.imagen}</p>
@@ -289,6 +293,7 @@ export default function CreateVideogameForm() {
             name="descripcion"
             value={inputs.descripcion}
             onChange={handleChange}
+            placeholder="Ingresar Descripción..."
           />
           {errors.descripcion ? (
             <p className={style.errors}>{errors.descripcion}</p>

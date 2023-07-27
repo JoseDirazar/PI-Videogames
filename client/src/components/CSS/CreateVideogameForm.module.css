@@ -1,122 +1,5 @@
-/* 
 .formContainer {
-  
-    width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #eeeeeed0;
-    border-radius: 40px;
-    background-color: #0d0d0d97;
-    
-  }
-  
-
-  .form {
-    display: grid;
-    grid-template-columns: 2;
-    
-    
-  }
-  
-
-  .label {
-    font-weight: bold;
-    margin-bottom: 4px;
-  }
-  
- 
-  .input {
-    padding: 8px;
-    margin-bottom: 0px;
-    border: 1px solid rgba(255, 255, 255, 0.807);
-    border-radius: 20px;
-    outline: none;
-    background-color: rgba(6, 6, 6, 0.8);
-    color: whitesmoke
-  }
-  
-
-  .textarea {
-    padding: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    height: 120px;
-    outline: none;
-    resize: vertical;
-    background-color: rgba(6, 6, 6, 0.8);
-    color: whitesmoke
-  }
-  
-
-  .errors {
-    color: red;
-    margin-top: 4px;
-    margin-bottom: 12px;
-    font-size: small;
-  }
-  
-  
-  .button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-
-  .unlistOptions{
-    grid-column: 2/2;
-    padding: 10px;
-    font-size: small;
-    flex-direction: column;
-   
-    background-color: rgba(0, 0, 0, 0.68);
-    border-radius: 20px;
-    margin-left: 0 auto;
-  }
-
-  .removeButton {
-
-    border-radius: 200px;
-    background-color: rgb(131, 0, 0, 0.5);
-    border: 2px solid rgb(131, 0, 0); 
-    font-weight: bolder;
-    font-size: x-small;
-    cursor: pointer;
-    color: rgb(255, 1, 1)
-  }
-  
-  
-  
-  
-  .genreTag{
-    display: flex;
-    justify-content:space-between;
-    margin-top: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  
-  .removeButton:hover {
-    background-color: red;
-    color: white; 
-    
-  }
-   */
-
-   /* Estilos para el contenedor del formulario */
-/* Estilos para el contenedor del formulario */
-.formContainer {
-  width: 500px;
+  width: 600px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #eeeeeed0;
@@ -124,20 +7,30 @@
   background-color: #0d0d0d97;
 }
 
-/* Estilos para el formulario */
 .form {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
-  gap: 20px; /* Espacio entre las columnas */
+  grid-template-columns: 1fr 1fr; /* Dos columnas con igual tamaño */
+  gap: 20px; /* Espacio entre las tablas */
 }
 
-/* Estilos para las etiquetas */
+.inputColumn{
+  display: flex;
+  flex-direction: column;
+  padding: 30px
+}
+
+.secondColumn{
+  display: flex;
+  flex-direction: column;
+}
+
 .label {
+  display: flex;
+  justify-content: center;
   font-weight: bold;
-  margin-bottom: 4px;
+  margin-bottom: px;
 }
 
-/* Estilos para los campos de entrada */
 .input {
   padding: 8px;
   margin-bottom: 0px;
@@ -148,7 +41,6 @@
   color: whitesmoke;
 }
 
-/* Estilos para el campo de texto */
 .textarea {
   padding: 8px;
   margin-bottom: 12px;
@@ -161,7 +53,6 @@
   color: whitesmoke;
 }
 
-/* Estilos para los mensajes de error */
 .errors {
   color: red;
   margin-top: 4px;
@@ -169,7 +60,6 @@
   font-size: small;
 }
 
-/* Estilos para el botón de submit */
 .button {
   padding: 10px 20px;
   border: none;
@@ -179,7 +69,6 @@
   font-weight: bold;
   cursor: pointer;
   outline: none;
-  border-radius: 200px;
 }
 
 .button:disabled {
@@ -192,6 +81,7 @@
   padding: 10px;
   font-size: small;
   flex-direction: column;
+
   background-color: rgba(0, 0, 0, 0.68);
   border-radius: 20px;
   margin-left: 0 auto;
@@ -200,17 +90,11 @@
 .removeButton {
   border-radius: 200px;
   background-color: rgb(131, 0, 0, 0.5);
-  border: 2px solid rgb(131, 0, 0); /* Cambia el color del borde según tus preferencias */
+  border: 2px solid rgb(131, 0, 0);
   font-weight: bolder;
   font-size: x-small;
   cursor: pointer;
   color: rgb(255, 1, 1);
-}
-
-/* Estilo del botón cuando el cursor está encima */
-.removeButton:hover {
-  background-color: red;
-  color: white; /* Cambia el color del texto cuando el cursor está encima */
 }
 
 .genreTag {
@@ -221,7 +105,7 @@
   padding-right: 30px;
 }
 
-
-
-
-
+.removeButton:hover {
+  background-color: red;
+  color: white;
+}

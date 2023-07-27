@@ -11,7 +11,5 @@ export default function validation(input) {
 
     if(input.descripcion.length > 255 ) errors.descripcion = "Maximo: 255 caracteres."
 
-    if(input.plataformas ) errors.plataformas = ""
-    //TODO plataformas y generos
     return errors
 } 
