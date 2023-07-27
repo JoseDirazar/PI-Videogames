@@ -4,12 +4,12 @@
   padding: 20px;
   border: 1px solid #eeeeeed0;
   border-radius: 40px;
-  background-color: #0d0d0d97;
+  background-image: linear-gradient(45deg, rgba(131, 131, 131, 0.353), black, rgba(123, 117, 117, 0.387));
 }
 
 .form {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas con igual tamaño */
+  grid-template-columns: 1fr 2fr; /* Dos columnas con igual tamaño */
   gap: 20px; /* Espacio entre las tablas */
 }
 
@@ -86,6 +86,7 @@
   border-radius: 20px;
   margin-left: 0 auto;
 }
+
 
 .removeButton {
   border-radius: 200px;
