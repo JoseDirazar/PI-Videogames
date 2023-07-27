@@ -43,9 +43,6 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         videogames:
-          /* payload === "A"
-            ? state.videogames.sort((a, z) => a.nombre - z.nombre)
-            : state.videogames.sort((a, z) => z.nombre - a.nombre), */
             payload === "A"
             ? namesToFilter.sort((a, z) => a.nombre.localeCompare(z.nombre))
             : namesToFilter.sort((a, z) => z.nombre.localeCompare(a.nombre)),
