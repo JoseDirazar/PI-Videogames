@@ -16,7 +16,7 @@ export default function Paginate({ page, cantPage }) {
           </>
         ) : (
           <>
-            <button onClick={() => dispatch(prev())}>PREV</button>
+            <button onClick={() => dispatch(prev()) } className={style.buttons}>PREV</button>
             <p>{page - 1}</p>
           </>
         )}
@@ -29,7 +29,7 @@ export default function Paginate({ page, cantPage }) {
         ) : (
           <>
             <p>{page + 1}</p>
-            <button onClick={() => dispatch(next())}>NEXT</button>
+            <button onClick={() => dispatch(next()) } className={style.buttons}>NEXT</button>
           </>
         )}
       </div>

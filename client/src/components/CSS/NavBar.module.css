@@ -1,7 +1,7 @@
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 
   height: 3em;
@@ -39,14 +39,6 @@ button:focus-visible {
   color: #e1e1e1;
 }
 
-.searchBar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 30%;
-  height: 20px;
-  
-}
 
 /* button {
   border-radius: 8px;

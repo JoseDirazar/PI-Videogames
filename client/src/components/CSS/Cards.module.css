@@ -14,19 +14,34 @@
 .filterOptions{
     display: flex;
     justify-content: center;
-    height: 30px;
+    height: 40px;
     align-items: center;
-    padding-top: 10px;
-    color: #E1E1E1
+    max-width: 97%;
+    border-radius: 200px;
+    align-items: center;
+    padding: auto;
+    color: #E1E1E1;
+    background-color: rgba(0, 0, 0, 0.686);
+  
+    margin-top: 10px;
 }
 
 .options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 20px;
-    margin-right: 20px
+    margin-right: 20px;
+    background-color: rgba(56, 56, 56, 0.542);
+    border-radius: 200px;
+    padding: 5px 15px 8px 15px;
+    min-width: 250px;
+    height: 10px;
 }
 
 .options select{
     background-color: rgba(49, 49, 49, 0.6);
     color: white;
     border-radius: 15px;
+    margin-left: 15px;
 }

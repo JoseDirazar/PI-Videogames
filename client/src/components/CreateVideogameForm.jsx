@@ -23,7 +23,7 @@ export default function CreateVideogameForm() {
     imagen: "",
     descripcion: "",
   });
-  //console.log(inputs.generos);
+  console.log(inputs.generos, inputs.plataformas);
   const [errors, setErrors] = useState({
     nombre: "",
     fecha_lanzamiento: "",
@@ -34,11 +34,10 @@ export default function CreateVideogameForm() {
     descripcion: "",
   });
 
-  // ---------------- Enable submit ---------------- Enable submit ---------------- Enable submit ---------------- Enable submit 
+  // ---------------- Enable submit ---------------- Enable submit ---------------- Enable submit ---------------- Enable submit
   const [enableSubmit, setEnableSubmit] = useState(false);
 
-
-  // ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit 
+  // ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit
   function handleChange(event) {
     setInputs({
       ...inputs,
@@ -189,11 +188,11 @@ export default function CreateVideogameForm() {
     if (!selectedPlatforms.includes(selectedPlatform)) {
       setSelectedPlatforms([...selectedPlatforms, selectedPlatform]);
     }
-    if(!inputs.plataformas.find(plat => plat === selectedPlatform)) {
+    if (!inputs.plataformas.find((plat) => plat === selectedPlatform)) {
       setInputs({
         ...inputs,
-        plataformas: [...inputs.plataformas, selectedPlatform]
-      })
+        plataformas: [...inputs.plataformas, selectedPlatform],
+      });
     }
   };
 
@@ -202,8 +201,8 @@ export default function CreateVideogameForm() {
     setSelectedPlatforms(updatedPlatforms);
     setInputs({
       ...inputs,
-      plataformas: inputs.plataformas.filter(plat => plat !== platform)
-    })
+      plataformas: inputs.plataformas.filter((plat) => plat !== platform),
+    });
   };
 
   // -----------------------RETURN-----------------------------------RETURN---------------------------------------RETURN-->
@@ -211,114 +210,107 @@ export default function CreateVideogameForm() {
   return (
     <div className={style.formContainer}>
       <form onSubmit={handleSubmit} className={style.form}>
-        <label htmlFor="nombre" className={style.label}>
-          Nombre:{" "}
-        </label>
-        <input
-          className={style.input}
-          type="text"
-          key="nombre"
-          name="nombre"
-          value={inputs.nombre}
-          onChange={handleChange}
-        />
-        {errors.nombre ? (
-          <p className={style.errors}>{errors.nombre}</p>
-        ) : (
-          <p></p>
-        )}
+        <div className={style.inputColumn}>
+          <label htmlFor="nombre" className={style.label}>
+            Nombre:{" "}
+          </label>
+          <input
+            className={style.input}
+            type="text"
+            key="nombre"
+            name="nombre"
+            value={inputs.nombre}
+            onChange={handleChange}
+          />
+          {errors.nombre ? (
+            <p className={style.errors}>{errors.nombre}</p>
+          ) : (
+            <p></p>
+          )}
 
-        <label htmlFor="fecha_lanzamiento" className={style.label}>
-          Fecha de lanzamiento:{" "}
-        </label>
-        <input
-          className={style.input}
-          type="text"
-          key="fecha_lanzamiento"
-          name="fecha_lanzamiento"
-          value={inputs.fecha_lanzamiento}
-          onChange={handleChange}
-        />
-        {errors.fecha_lanzamiento ? (
-          <p className={style.errors}>{errors.fecha_lanzamiento}</p>
-        ) : (
-          <p></p>
-        )}
+          <label htmlFor="fecha_lanzamiento" className={style.label}>
+            Fecha de lanzamiento:{" "}
+          </label>
+          <input
+            className={style.input}
+            type="text"
+            key="fecha_lanzamiento"
+            name="fecha_lanzamiento"
+            value={inputs.fecha_lanzamiento}
+            onChange={handleChange}
+          />
+          {errors.fecha_lanzamiento ? (
+            <p className={style.errors}>{errors.fecha_lanzamiento}</p>
+          ) : (
+            <p></p>
+          )}
 
-        {/* <label htmlFor="plataformas" className={style.label}>
-          Plataformas:{" "}
-        </label>
-        <input
-          className={style.input}
-          type="text"
-          key="plataformas"
-          name="plataformas"
-          value={inputs.plataformas}
-          onChange={handleChange}
-        />
-        {errors.plataformas ? (
-          <p className={style.errors}>{errors.plataformas}</p>
-        ) : (
-          <p></p>
-        )} */}
+          <label htmlFor="rating" className={style.label}>
+            Rating:{" "}
+          </label>
+          <input
+            className={style.input}
+            type="text"
+            key="rating"
+            name="rating"
+            value={inputs.rating}
+            onChange={handleChange}
+          />
+          {errors.rating ? (
+            <p className={style.errors}>{errors.rating}</p>
+          ) : (
+            <p></p>
+          )}
 
-          <label className={style.label}>Selecciona una plataforma:</label>
-          <select onChange={handlePlatformChange} className={style.input} defaultValue="">
-            <option value="" disabled>Selecciona una plataforma</option>
-            {allPlatforms.map((platform) => (
-              <option key={platform} value={platform}>
-                {platform}
-              </option>
-            ))}
-          </select>
-        <div>
-          <ul className={style.unlistOptions}>
-            {selectedPlatforms.map((platform) => (
-              <li key={platform} className={style.genreTag}>
-                {platform}
-                <button className={style.removeButton} onClick={() => handleRemovePlatform(platform)}>
-                  x
-                </button>
-              </li>
-            ))}
-          </ul>
+          <label htmlFor="imagen" className={style.label}>
+            Imagen:{" "}
+          </label>
+          <input
+            className={style.input}
+            type="text"
+            key="imagen"
+            name="imagen"
+            value={inputs.imagen}
+            onChange={handleChange}
+          />
+          {errors.imagen ? (
+            <p className={style.errors}>{errors.imagen}</p>
+          ) : (
+            <p></p>
+          )}
+
+          <label htmlFor="descripcion" className={style.label}>
+            Descripcion:{" "}
+          </label>
+          <textarea
+            className={style.textarea}
+            type="text"
+            key="descripcion"
+            name="descripcion"
+            value={inputs.descripcion}
+            onChange={handleChange}
+          />
+          {errors.descripcion ? (
+            <p className={style.errors}>{errors.descripcion}</p>
+          ) : (
+            <p></p>
+          )}
         </div>
 
-        <label htmlFor="rating" className={style.label}>
-          Rating:{" "}
-        </label>
-        <input
-          className={style.input}
-          type="text"
-          key="rating"
-          name="rating"
-          value={inputs.rating}
-          onChange={handleChange}
-        />
-        {errors.rating ? (
-          <p className={style.errors}>{errors.rating}</p>
-        ) : (
-          <p></p>
-        )}
-
-        {/* <label htmlFor="generos" className={style.label}>Generos: </label>
-        <input
-          className={style.input}
-          type="text"
-          key="generos"
-          name="generos"
-          value={inputs.generos}
-          onChange={handleChange}
-        />
-        {errors.generos ? <p className={style.errors}>{errors.generos}</p> : <p></p>} */}
-
-        {
-          <div>
+        <div className={style.secondColumn}>
+          <div className={style.generos}>
             <label htmlFor="generos" className={style.label}>
               Géneros:
             </label>
-            <select name="generos" onChange={handleGenreSelect} className={style.input} defaultValue="">
-              <option value="" disabled>Seleccionar genero</option>
+            <select
+              name="generos"
+              onChange={handleGenreSelect}
+              className={style.input}
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Seleccionar genero
+              </option>
               {genres.map((genre) => (
                 <option key={genre.id} value={genre.id}>
                   {genre.name}
@@ -326,56 +318,57 @@ export default function CreateVideogameForm() {
               ))}
             </select>
 
-            <ul className={style.unlistOptions}>
-              {selectedGenres.map((genre) => (
-                <li key={genre.id} className={style.genreTag}>
-                  {genre.name}
-                  <button
-                    type="button"
-                    onClick={() => handleRemoveGenre(genre.id)}
-                    className={style.removeButton}
-                  >
-                    x
-                  </button>
-                </li>
-              ))}
-            </ul>
+            {selectedGenres.length < 1 ? null : (
+              <ul className={style.unlistOptions}>
+                {selectedGenres.map((genre) => (
+                  <li key={genre.id} className={style.genreTag}>
+                    {genre.name}
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveGenre(genre.id)}
+                      className={style.removeButton}
+                    >
+                      x
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-        }
 
-        <label htmlFor="imagen" className={style.label}>
-          Imagen:{" "}
-        </label>
-        <input
-          className={style.input}
-          type="text"
-          key="imagen"
-          name="imagen"
-          value={inputs.imagen}
-          onChange={handleChange}
-        />
-        {errors.imagen ? (
-          <p className={style.errors}>{errors.imagen}</p>
-        ) : (
-          <p></p>
-        )}
-
-        <label htmlFor="descripcion" className={style.label}>
-          Descripcion:{" "}
-        </label>
-        <textarea
-          className={style.textarea}
-          type="text"
-          key="descripcion"
-          name="descripcion"
-          value={inputs.descripcion}
-          onChange={handleChange}
-        />
-        {errors.descripcion ? (
-          <p className={style.errors}>{errors.descripcion}</p>
-        ) : (
-          <p></p>
-        )}
+          <div className={style.plataformas}>
+          <label className={style.label}>Selecciona una plataforma:</label>
+          <select
+            onChange={handlePlatformChange}
+            className={style.input}
+            defaultValue=""
+          >
+            <option value="" disabled>
+              Selecciona una plataforma
+            </option>
+            {allPlatforms.map((platform) => (
+              <option key={platform} value={platform}>
+                {platform}
+              </option>
+            ))}
+          </select>
+            {selectedPlatforms.length < 1 ? null : (
+              <ul className={style.unlistOptions}>
+                {selectedPlatforms.map((platform) => (
+                  <li key={platform} className={style.genreTag}>
+                    {platform}
+                    <button
+                      className={style.removeButton}
+                      onClick={() => handleRemovePlatform(platform)}
+                    >
+                      x
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
 
         <button type="submit" className={style.button} disabled={!enableSubmit}>
           Crear

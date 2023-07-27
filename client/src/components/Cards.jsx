@@ -1,14 +1,13 @@
 import Card from "./Card";
 import Paginate from "./Paginate";
+import style from "./CSS/Cards.module.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import {
-  filterByName,
-  filterByGenres,
-  filterByRating,
-  reset,
-} from "../redux/actions";
-import style from "./CSS/Cards.module.css";
+
+import {filterByName,filterByGenres, filterByRating, reset } from "../redux/actions";
+
+
 export default function Cards() {
   const { videogames, page } = useSelector((state) => state);
   const [aux, setAux] = useState(false);

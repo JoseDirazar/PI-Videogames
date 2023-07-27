@@ -24,7 +24,7 @@ export default function SearchBar({ onSearch }) {
   }
 
   return (
-    <div>
+    <div className={style.searchBar}>
       <input className={style.input} type="search" value={name} onChange={handleOnChange} onKeyDown={handleOnKeyPress} />
       <button className={style.button} onClick={handleOnClick} /* onClick={() => handleOnClick()} */>Buscar</button>
     </div>
