@@ -9,21 +9,24 @@ export default function Detail() {
     const {id} = useParams()
     
     const [videogame, setVideogame] = useState({})
-    
+    console.log("videogame: ", videogame)
     useEffect(() => {
         async function inEffect() {
             try {
-                const {data} = await axios.get(`http://localhost:3001/videogames/${id}`)
+                let {data} = await axios.get(`http://localhost:3001/videogames/${id}`)
                 
+                console.log("data: ", data)
                 if(data.plataformas.length > 1) data.plataformas = data.plataformas.join(", ")
-                if(data.genres.length > 1) data.genres = data.genres.join(", ")
-                if(data.desarrolladores.length > 1) data.desarrolladores = data.desarrolladores.join(", ")
-                if(data.tiendas.length > 1) data.tiendas = data.tiendas.join(", ")
+                if(data.genres && data.genres.length > 1) data.genres = data.genres.join(", ")
+                if(data.desarrolladores) data.desarrolladores = data.desarrolladores.join(", ")
+                if(data.tiendas) data.tiendas = data.tiendas.join(", ")
+                
+                console.log(data)
                 if(data.nombre) {
-                    setVideogame(data)
+                  setVideogame(data)
                 } 
             } catch (error) {
-                
+                console.log(error)
             }
         }
         inEffect()
@@ -44,7 +47,7 @@ export default function Detail() {
           <p className={style.description} dangerouslySetInnerHTML={{ __html: videogame.descripcion }} />
         <div className={style.extraData}>
           <p>Plataformas: {videogame.plataformas}</p>
-          <p>Generos: {videogame.genres}</p>
+          <p>Generos: {videogame.genres/* .Genres.map(genre => genre.nombre) */}</p>
           <p>Rating: {videogame.rating}</p>
           <p>Lanzamiento: {videogame.fecha_lanzamiento}</p>
           <p>Desarrolladores: {videogame.desarrolladores}</p>

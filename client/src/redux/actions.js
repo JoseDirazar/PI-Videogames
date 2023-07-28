@@ -17,10 +17,11 @@ export function postVideogame(videogameCreado) {
     return async function(dispatch) {
         try {
            
-            const videogameFromDb = await axios.post('http://localhost:3001/videogame', videogameCreado)
+            const {data} = await axios.post('http://localhost:3001/videogame', videogameCreado)
+            
             return dispatch({
                 type: POST_VIDEOGAME,
-                payload: videogameFromDb
+                payload: data
             })
         } catch (error) {
             console.log(error)

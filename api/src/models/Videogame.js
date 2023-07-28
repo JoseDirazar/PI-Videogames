@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
       }
     },
     fecha_lanzamiento:{
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       allowNull: false 
     },
     rating:{

@@ -23,7 +23,7 @@ export default function CreateVideogameForm() {
     imagen: "",
     descripcion: "",
   });
-  //console.log(inputs);
+  console.log(inputs);
   const [errors, setErrors] = useState({
     nombre: "",
     fecha_lanzamiento: "",
@@ -68,8 +68,8 @@ export default function CreateVideogameForm() {
       return alert(`El videojuego ${existe.nombre} ya existe en el servidor.`);
     }
     inputs.rating = Number(inputs.rating);
-    inputs.id = Math.floor(Math.random() * 500) + 900000;
-    
+    inputs.id = Math.floor(Math.random() * 1000) + 1500000;
+    console.log(inputs)
     
     //console.log(inputs);
     dispatch(postVideogame(inputs));
@@ -111,7 +111,7 @@ export default function CreateVideogameForm() {
       if (!inputs.generos.find((genre) => genre === genreId)) {
         setInputs({
           ...inputs,
-          generos: [...inputs.generos, genreId], // Setear el ID del genero en lugar del nombre para poder relacionarla en la DB con la tabla Genres
+          generos: [...inputs.generos, selectedGenre], // Setear el ID del genero en lugar del nombre para poder relacionarla en la DB con la tabla Genres
         });
       }
     }

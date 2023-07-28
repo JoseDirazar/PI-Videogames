@@ -5,7 +5,7 @@ const create1 = {
     plataformas: "Xbox, PlayStation",
     rating: 4.9,
     generos: "Accion, Plataforma",
-    imagen: "https://ih1.redbubble.net/image.1045126361.2094/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
+    imagen: "https://www.elpais.com.co/resizer/mBPF0ANIhK9C8OBjoh-0-3RA_5c=/1280x720/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/ES4YNNALTVAY3I5RENIXL5WIQI.jpg"
 }
 
 async function ta() {

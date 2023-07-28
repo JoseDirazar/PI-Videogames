@@ -4,9 +4,12 @@ async function postVideogameController(req,res) {
     try {
         const { id, nombre, descripcion, plataformas, imagen, fecha_lanzamiento, rating, generos } = req.body
         if(!id || !nombre || !imagen || !generos ) return res.status(404).json({error: `Los campos: ID, nombre, imagen, generos, son requeridos.`})
-
+        const genresID = generos.map(obj => obj.id)
+        
+        const genresName = generos.map(obj => obj.name)
+        
         const videogame = {
-            id,
+            id: +id,
             nombre,
             descripcion,
             plataformas,
@@ -24,10 +27,11 @@ async function postVideogameController(req,res) {
           
         
         const gameCreated = await Videogame.create(videogame)
-        await gameCreated.addGenres(generos)
-
-        return res.status(200).json({message: 'Videojuego creado!.'})     
+        await gameCreated.addGenres(genresID)
+        //console.log({...videogame, genres: generos})
+        return res.status(200).json({...videogame, genres: genresName})     
     } catch (error) {
+        console.log(error)
         return res.status(404).json({error: error})
     }
     
