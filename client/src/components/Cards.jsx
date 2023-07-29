@@ -9,8 +9,10 @@ import {filterByName,filterByGenres, filterByRating, reset } from "../redux/acti
 
 
 export default function Cards() {
-  const { videogames, page } = useSelector((state) => state);
-  const [aux, setAux] = useState(false);
+  //const { videogames, page } = useSelector((state) => state);
+  const videogames = useSelector((state) => state.videogames)
+  const page = useSelector(state => state.page)
+  
   const dispatch = useDispatch();
 
   let videoGamesPage = videogames;
@@ -26,7 +28,7 @@ export default function Cards() {
 
   function handleOrder(event) {
     dispatch(filterByName(event.target.value));
-    //setAux(!aux)
+    
   }
   function handleGenres(event) {
     dispatch(filterByGenres(event.target.value));
