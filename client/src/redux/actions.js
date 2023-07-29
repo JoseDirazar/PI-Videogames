@@ -111,6 +111,7 @@ export function searching(name) {
             })
         } catch (error) {
             console.log(error)
+            return alert('No se encontro el juego.')
         }
 
     }

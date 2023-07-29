@@ -211,173 +211,56 @@ export default function CreateVideogameForm() {
     <div className={style.formContainer}>
       <form onSubmit={handleSubmit} className={style.form}>
         <div className={style.inputColumn}>
-          <label htmlFor="nombre" className={style.label}>
-            Nombre:{" "}
-          </label>
-          <input
-            className={style.input}
-            type="text"
-            key="nombre"
-            name="nombre"
-            value={inputs.nombre}
-            onChange={handleChange}
-            placeholder="Name:"
-          />
-          {errors.nombre ? (
-            <p className={style.errors}>{errors.nombre}</p>
-          ) : (
-            <p></p>
-          )}
 
-          <label htmlFor="fecha_lanzamiento" className={style.label}>
-            Fecha de lanzamiento:{" "}
-          </label>
-          <input
-            className={style.input}
-            type="text"
-            key="fecha_lanzamiento"
-            name="fecha_lanzamiento"
-            value={inputs.fecha_lanzamiento}
-            onChange={handleChange}
-            placeholder="27/7/23"
-          />
-          {errors.fecha_lanzamiento ? (
-            <p className={style.errors}>{errors.fecha_lanzamiento}</p>
-          ) : (
-            <p></p>
-          )}
+          <label htmlFor="nombre" className={style.label}> Nombre:{" "} </label>
+          <input className={style.input} type="text" key="nombre" name="nombre" value={inputs.nombre} onChange={handleChange} placeholder="Name:" />
+          {errors.nombre ? ( <p className={style.errors}>{errors.nombre}</p> ) : (<p></p> )}
 
-          <label htmlFor="rating" className={style.label}>
-            Rating:{" "}
-          </label>
-          <input
-            className={style.input}
-            type="text"
-            key="rating"
-            name="rating"
-            value={inputs.rating}
-            onChange={handleChange}
-            placeholder="0"
-          />
-          {errors.rating ? (
-            <p className={style.errors}>{errors.rating}</p>
-          ) : (
-            <p></p>
-          )}
+          <label htmlFor="fecha_lanzamiento" className={style.label}>Fecha de lanzamiento:{" "} </label>
+          <input className={style.input} type="text" key="fecha_lanzamiento" name="fecha_lanzamiento" value={inputs.fecha_lanzamiento} onChange={handleChange} placeholder="27/7/23" />
+          {errors.fecha_lanzamiento ? ( <p className={style.errors}>{errors.fecha_lanzamiento}</p>) : ( <p></p>)}
 
-          <label htmlFor="imagen" className={style.label}>
-            Imagen:{" "}
-          </label>
-          <input
-            className={style.input}
-            type="text"
-            key="imagen"
-            name="imagen"
-            value={inputs.imagen}
-            onChange={handleChange}
-            placeholder="http://www.url.com/myVideogame.png"
-          />
-          {errors.imagen ? (
-            <p className={style.errors}>{errors.imagen}</p>
-          ) : (
-            <p></p>
-          )}
+          <label htmlFor="rating" className={style.label}>Rating:{" "}</label>
+          <input className={style.input} type="text" key="rating" name="rating" value={inputs.rating} onChange={handleChange} placeholder="0"/>
+          {errors.rating ? (<p className={style.errors}>{errors.rating}</p>) : (<p></p>)}
 
-          <label htmlFor="descripcion" className={style.label}>
-            Descripcion:{" "}
-          </label>
-          <textarea
-            className={style.textarea}
-            type="text"
-            key="descripcion"
-            name="descripcion"
-            value={inputs.descripcion}
-            onChange={handleChange}
-            placeholder="Ingresar Descripción..."
-          />
-          {errors.descripcion ? (
-            <p className={style.errors}>{errors.descripcion}</p>
-          ) : (
-            <p></p>
-          )}
+          <label htmlFor="imagen" className={style.label}>Imagen:{" "}</label>
+          <input className={style.input} type="text" key="imagen" name="imagen" value={inputs.imagen} onChange={handleChange} placeholder="http://www.url.com/myVideogame.png"/>
+          {errors.imagen ? (<p className={style.errors}>{errors.imagen}</p>) : (<p></p>)}
+
+          <label htmlFor="descripcion" className={style.label}>Descripcion:{" "}</label>
+          <textarea className={style.textarea} type="text" key="descripcion" name="descripcion" value={inputs.descripcion} onChange={handleChange} placeholder="Ingresar Descripción..." />
+          {errors.descripcion ? (<p className={style.errors}>{errors.descripcion}</p>) : (<p></p>)}
+
+          <button type="submit" className={style.button} disabled={!enableSubmit}> Crear </button>
         </div>
-
         <div className={style.secondColumn}>
+
           <div className={style.generos}>
-            <label htmlFor="generos" className={style.label}>
-              Géneros:
-            </label>
-            <select
-              name="generos"
-              onChange={handleGenreSelect}
-              className={style.input}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Seleccionar genero
-              </option>
-              {genres.map((genre) => (
-                <option key={genre.id} value={genre.id}>
-                  {genre.name}
-                </option>
-              ))}
+
+            <label htmlFor="generos" className={style.label}>Géneros</label>
+            <select name="generos" onChange={handleGenreSelect} className={style.input} defaultValue="" >
+              <option value="" disabled> Seleccionar genero</option>
+              {genres.map((genre) => ( <option key={genre.id} value={genre.id}>{genre.name}</option> ))} 
             </select>
 
-            {selectedGenres.length < 1 ? null : (
-              <ul className={style.unlistOptions}>
-                {selectedGenres.map((genre) => (
-                  <li key={genre.id} className={style.genreTag}>
-                    {genre.name}
-                    <button
-                      type="button"
-                      onClick={() => handleRemoveGenre(genre.id)}
-                      className={style.removeButton}
-                    >
-                      x
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+            {selectedGenres.length < 1 ? null : ( <ul className={style.unlistOptions}> {selectedGenres.map((genre) => (<li key={genre.id} className={style.genreTag}>{genre.name}
+            <button type="button" onClick={() => handleRemoveGenre(genre.id)} className={style.removeButton}>x</button></li>))} </ul> )}
 
+          </div>
           <div className={style.plataformas}>
-          <label className={style.label}>Selecciona una plataforma:</label>
-          <select
-            onChange={handlePlatformChange}
-            className={style.input}
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Selecciona una plataforma
-            </option>
-            {allPlatforms.map((platform) => (
-              <option key={platform} value={platform}>
-                {platform}
-              </option>
-            ))}
+
+          <label className={style.label}>Selecciona una plataforma</label>
+          <select onChange={handlePlatformChange} className={style.input} defaultValue="" >
+            <option value="" disabled>Selecciona una plataforma</option>
+            {allPlatforms.map((platform) => ( <option key={platform} value={platform}>{platform}</option>))}
           </select>
-            {selectedPlatforms.length < 1 ? null : (
-              <ul className={style.unlistOptions}>
-                {selectedPlatforms.map((platform) => (
-                  <li key={platform} className={style.genreTag}>
-                    {platform}
-                    <button
-                      className={style.removeButton}
-                      onClick={() => handleRemovePlatform(platform)}
-                    >
-                      x
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
+          {selectedPlatforms.length < 1 ? null : ( <ul className={style.unlistOptions}> {selectedPlatforms.map((platform) => ( <li key={platform} className={style.genreTag}>{platform} <button className={style.removeButton} onClick={() => handleRemovePlatform(platform)} >x</button> </li> ))}
+            </ul>
+          )}
           </div>
         </div>
 
-        <button type="submit" className={style.button} disabled={!enableSubmit}>
-          Crear
-        </button>
       </form>
     </div>
   );

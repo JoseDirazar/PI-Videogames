@@ -1,16 +1,16 @@
 .formContainer {
-  width: 600px;
-  margin: 0 auto;
+  width: 490px;
+  margin: 2rem auto;
   padding: 20px;
-  border: 1px solid #eeeeeed0;
+  border: 1px solid #4400ff;
   border-radius: 40px;
-  background-image: linear-gradient(45deg, rgba(131, 131, 131, 0.353), black, rgba(123, 117, 117, 0.387));
-}
+  background-image: linear-gradient(-90deg, #3d1e656c, rgba(2, 2, 2, 0.628), #1d128068 );}
 
 .form {
-  display: grid;
-  grid-template-columns: 1fr 2fr; /* Dos columnas con igual tamaño */
-  gap: 20px; /* Espacio entre las tablas */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem
 }
 
 .inputColumn{
@@ -28,31 +28,33 @@
   display: flex;
   justify-content: center;
   font-weight: bold;
-  margin-bottom: px;
+  margin-bottom: 5px;
 }
 
 .input {
   padding: 8px;
   margin-bottom: 0px;
-  border: 1px solid rgba(255, 255, 255, 0.807);
+  border: 1px solid #4400ff;
   border-radius: 20px;
   outline: none;
-  background-color: rgba(6, 6, 6, 0.8);
-  color: whitesmoke;
+  background-color: rgba(13, 2, 49, 0.77);
+  color: #fafafa;
 }
 
 .textarea {
   padding: 8px;
   margin-bottom: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #4400ff;
   border-radius: 20px;
   height: 120px;
   outline: none;
   resize: vertical;
-  background-color: rgba(6, 6, 6, 0.8);
-  color: whitesmoke;
+  background-color: rgba(13, 2, 49, 0.77);
+  color: #ffffff;
 }
-
+.input::placeholder, .textarea::placeholder{
+  color: #d0d0d0c3
+}
 .errors {
   color: red;
   margin-top: 4px;
@@ -63,8 +65,8 @@
 .button {
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
-  background-color: #007bff;
+  border-radius: 200px;
+  background-color: #0421fffa;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
@@ -72,7 +74,8 @@
 }
 
 .button:disabled {
-  background-color: #ccc;
+  background-color: #0421ff2f;
+  color: rgb(158, 156, 156);
   cursor: not-allowed;
 }
 
@@ -82,7 +85,7 @@
   font-size: small;
   flex-direction: column;
 
-  background-color: rgba(0, 0, 0, 0.68);
+  background-image: linear-gradient(0deg, #060240, rgba(5, 3, 129, 0.628), #070ca0 );
   border-radius: 20px;
   margin-left: 0 auto;
 }
@@ -90,12 +93,12 @@
 
 .removeButton {
   border-radius: 200px;
-  background-color: rgb(131, 0, 0, 0.5);
-  border: 2px solid rgb(131, 0, 0);
+  background-color: rgba(80, 1, 1, 0.5);
+  border: 2px solid rgb(136, 0, 0);
   font-weight: bolder;
   font-size: x-small;
   cursor: pointer;
-  color: rgb(255, 1, 1);
+  color: rgb(142, 141, 141);
 }
 
 .genreTag {
@@ -107,6 +110,11 @@
 }
 
 .removeButton:hover {
-  background-color: red;
+  background-color: rgb(230, 4, 4);
   color: white;
+}
+
+.generos{
+  height: 40%;
+  padding-top: 15%;
 }

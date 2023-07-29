@@ -19,6 +19,7 @@ export default function NavBar() {
           Create
         </NavLink>
       </div>
+      <h1>FrikiGamer</h1>
         { location.pathname !== "/create" && <div className={style.searchBar}> <SearchBar /> </div>}
     </nav>
   );

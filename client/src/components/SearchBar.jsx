@@ -13,7 +13,7 @@ export default function SearchBar({ onSearch }) {
   
   }
   function handleOnClick() {
-    dispatch(searching(name));
+    dispatch(searching(name.trim()));
     setName("");
   }
 
@@ -26,7 +26,7 @@ export default function SearchBar({ onSearch }) {
   return (
     <div className={style.searchBar}>
       <input className={style.input} type="search" value={name} onChange={handleOnChange} onKeyDown={handleOnKeyPress} />
-      <button className={style.button} onClick={handleOnClick} /* onClick={() => handleOnClick()} */>Buscar</button>
+      <button className={style.button} onClick={handleOnClick} >Buscar</button>
     </div>
   );
 }

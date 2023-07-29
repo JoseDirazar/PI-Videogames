@@ -1,13 +1,13 @@
 .background{
   display: flex;
   justify-content: center;
-  background-image: url('landingIMG.jpg');
+  align-items: flex-end;
+  background-image: url('LandingBackground.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   width: 100%;
   height: 100vh;
-  
 }
 .landingContainer{
   display: flex;
@@ -15,7 +15,8 @@
   flex-direction: column;
   justify-content: center;
   align-items:center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-image: linear-gradient(155deg, #91020276, #4400e1c7, #0016a59d);
+
   padding: 20px;
   border-radius: 200px;
   color: rgba(245, 244, 244, 0.84);

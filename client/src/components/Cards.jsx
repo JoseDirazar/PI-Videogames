@@ -48,7 +48,7 @@ export default function Cards() {
   return (
     <div className={style.cardsContainer}>
       <div className={style.filterOptions}>
-        <p>Ordenar por: </p>
+        <p className={style.ordenarPor}>Ordenar por: </p>
         <div className={style.options}>
           <label htmlFor="a-z">Alfabeto </label>
           <select name="a-z" onChange={handleOrder} defaultValue="">
