@@ -3,13 +3,12 @@ import Paginate from "./Paginate";
 import style from "./CSS/Cards.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {filterByName,filterByGenres, filterByRating, reset } from "../redux/actions";
 
 
 export default function Cards() {
-  //const { videogames, page } = useSelector((state) => state);
   const videogames = useSelector((state) => state.videogames)
   const page = useSelector(state => state.page)
   
@@ -46,6 +45,8 @@ export default function Cards() {
       select.selectedIndex = 0;
     }
   }
+
+ 
 
   return (
     <div className={style.cardsContainer}>

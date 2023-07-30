@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { postVideogame } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +8,10 @@ import validation from "./validations/validate";
 
 export default function CreateVideogameForm() {
   const dispatch = useDispatch();
-  const { videogames } = useSelector((store) => store);
+  const  videogames  = useSelector((store) => store.videogames);
   const navigate = useNavigate();
 
   //----------------- Inputs Submiters ------------------ Inputs Submiters ------------------ Inputs Submiters -----------------
-
   const [inputs, setInputs] = useState({
     id: 0,
     nombre: "",
@@ -23,7 +22,7 @@ export default function CreateVideogameForm() {
     imagen: "",
     descripcion: "",
   });
-  console.log(inputs);
+console.log(inputs)
   const [errors, setErrors] = useState({
     nombre: "",
     fecha_lanzamiento: "",
@@ -37,7 +36,7 @@ export default function CreateVideogameForm() {
   // ---------------- Enable submit ---------------- Enable submit ---------------- Enable submit ---------------- Enable submit
   const [enableSubmit, setEnableSubmit] = useState(false);
 
-  // ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit
+  // ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit
   function handleChange(event) {
     setInputs({
       ...inputs,
@@ -56,30 +55,36 @@ export default function CreateVideogameForm() {
     );
     setEnableSubmit(!hasErrors);
   }
+  // ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit ---------------- Handle Inputs to Submit
 
-  //-----------------Submit Handler--------------------------Submit Handler--------------------------Submit Handler-----------------
+
+  //----------------- Submit Handler -------------------------- Submit Handler -------------------------- Submit Handler ----------------- Submit Handler -----------------
 
   function handleSubmit(event) {
     event.preventDefault();
+    localStorage.removeItem("formData");
+
     const existe = videogames.find(
       (videogame) => videogame.nombre === inputs.nombre
     );
+
     if (existe) {
       return alert(`El videojuego ${existe.nombre} ya existe en el servidor.`);
     }
+
     inputs.rating = Number(inputs.rating);
     inputs.id = Math.floor(Math.random() * 1000) + 1500000;
-    console.log(inputs)
-    
-    //console.log(inputs);
+   
     dispatch(postVideogame(inputs));
-
     alert("Videojuego Creado!");
     navigate("/home");
   }
+  //-----------------Submit Handler--------------------------Submit Handler--------------------------Submit Handler-----------------
 
   //-------------Genres Handlers----------------------------Genres Handlers----------------------------Genres Handlers---------------
   const [selectedGenres, setSelectedGenres] = useState([]);
+
+ 
   const genres = [
     { id: 4, name: "Action" },
     { id: 51, name: "Indie" },
@@ -123,9 +128,10 @@ export default function CreateVideogameForm() {
     );
     setInputs({
       ...inputs,
-      generos: inputs.generos.filter((genre) => genre !== genreId),
+      generos: inputs.generos.filter((genre) => genre.id !== genreId),
     });
   };
+  //-------------Genres Handlers----------------------------Genres Handlers----------------------------Genres Handlers---------------
 
   //-------------- Platforms Handlers ------------------- Platforms Handlers ------------------- Platforms Handlers ------------------
   const allPlatforms = [
@@ -182,7 +188,6 @@ export default function CreateVideogameForm() {
   ];
 
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
-
   const handlePlatformChange = (event) => {
     const selectedPlatform = event.target.value;
     if (!selectedPlatforms.includes(selectedPlatform)) {
@@ -204,6 +209,25 @@ export default function CreateVideogameForm() {
       plataformas: inputs.plataformas.filter((plat) => plat !== platform),
     });
   };
+  //-------------- Platforms Handlers ------------------- Platforms Handlers ------------------- Platforms Handlers ------------------
+
+  //------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data 
+  useEffect(() => {
+    const storedFormData = JSON.parse(localStorage.getItem("formData"));
+
+    if (storedFormData) {
+      setInputs(storedFormData);
+    }
+    setSelectedGenres(storedFormData.generos)
+    setSelectedPlatforms(storedFormData.plataformas)
+  }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(inputs));
+  }, [inputs]);
+  //------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data ------------ Storage Form Data 
+
 
   // -----------------------RETURN-----------------------------------RETURN---------------------------------------RETURN-->
 

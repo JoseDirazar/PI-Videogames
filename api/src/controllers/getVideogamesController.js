@@ -29,6 +29,7 @@ async function getVideogamesController(req,res) {
               })
             return res.status(200).json({results: [...videogamesWithGenres, ...videogamesArray ]})
         }
+        console.log(videogamesArray)
         return res.status(200).json({results: videogamesArray})
     } catch (error) {
         console.log(error)

@@ -18,15 +18,15 @@ export default function Detail() {
 
         console.log("data: ", data);
         if (data.plataformas.length > 1) data.plataformas = data.plataformas.map((platform, index) => {
-          return <p key={index}>{platform}</p>
+          return <p className={style.parrafosPGrupo2} key={index}>{platform}</p>
         });
         if (data.genres && data.genres.length > 1)
           data.genres = data.genres.map((genres, index) => {
-            return <p key={index}>{genres}</p>
+            return <p className={style.parrafosPGrupo2} key={index}>{genres}</p>
           });;
         if (data.desarrolladores)
           data.desarrolladores = data.desarrolladores.map((desarrollador, index) => {
-            return <p key={index}>{desarrollador}</p>
+            return <p className={style.parrafosPGrupo2} key={index}>{desarrollador}</p>
           });;
         console.log(data.tiendas);
         if (data.tiendas)
@@ -59,14 +59,7 @@ export default function Detail() {
   }, [id]);
 
   return (
-    <div
-      className={style.detail}
-      style={{
-        backgroundImage: `url(${videogame.imagen_extra})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className={style.detail} >
       <div className={style.tiendas}>Stores:{videogame.tiendas}</div>
 
       <div className={style.grupo2}>
@@ -74,19 +67,21 @@ export default function Detail() {
           <div className={style.idYnombre}>
             <h3 className={style.id}>Id: {id}</h3>
             <h1 className={style.nombre}>{videogame.nombre}</h1>
+            <div className={style.imagen}>
             <img
               className={style.img}
               src={videogame.imagen}
               alt={videogame.nombre}
             ></img>
+            </div>
           </div>
           <div className={style.parrafos}>
           <div className={style.dataParrafos}>
-              <h3>Rating:</h3>
-              <div> {videogame.rating}</div>
+              <h3>Rating</h3>
+              <div className={style.parrafosPGrupo2}> {videogame.rating}</div>
               <p></p>
               <h3>Lanzamiento</h3>
-              <div> {videogame.fecha_lanzamiento}</div>
+              <div className={style.parrafosPGrupo2}> {videogame.fecha_lanzamiento}</div>
             </div>  
             <div className={style.dataParrafos}>
               <h3>Plataformas</h3>

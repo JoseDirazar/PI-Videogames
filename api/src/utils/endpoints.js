@@ -1,6 +1,7 @@
 const axios = require("axios");
 const URL = "https://api.rawg.io/api/";
 
+
 require("dotenv").config();
 const { API_KEY } = process.env;
 
@@ -8,24 +9,21 @@ async function getVideogames() {
   try {
     let response = [];
     let allResponse = [];
-     response = await Promise.all([axios.get(`${URL}games?key=${API_KEY}&page=${1}`),
-       axios.get(`${URL}games?key=${API_KEY}&page=${2}`),
-       axios.get(`${URL}games?key=${API_KEY}&page=${3}`), 
-       axios.get(`${URL}games?key=${API_KEY}&page=${4}`),
-       axios.get(`${URL}games?key=${API_KEY}&page=${5}`)]);
+
+    response = await Promise.all([axios.get(`${URL}games?key=${API_KEY}&page=${1}`),
+      axios.get(`${URL}games?key=${API_KEY}&page=${2}`),
+      axios.get(`${URL}games?key=${API_KEY}&page=${3}`), 
+      axios.get(`${URL}games?key=${API_KEY}&page=${4}`),
+      axios.get(`${URL}games?key=${API_KEY}&page=${5}`)]
+    );
       
        
-       response.forEach(element => {
-         allResponse = allResponse.concat(element.data.results);
-        });
-        
-       
-    /* for (let i = 1; i < 6; i++) {
-      const { data } = await axios.get(`${URL}games?key=${API_KEY}&page=${i}`);
-      totalResponse = [...totalResponse, ...data.results]
-    } */
-    
+    response.forEach(element => {
+      allResponse = allResponse.concat(element.data.results);
+    });
+   
     const mergedArray = [];
+
     
     allResponse.forEach((videogame) => {
       const videogameBoilerplate = {
@@ -40,10 +38,10 @@ async function getVideogames() {
       };
       mergedArray.push(videogameBoilerplate);  
     });
-
+    if(!mergedArray) throw new Error('Eloooooo')
     return mergedArray;
   } catch (error) {
-    throw new Error({error: error})
+    throw new Error({error: error.message})
   }
 }
 

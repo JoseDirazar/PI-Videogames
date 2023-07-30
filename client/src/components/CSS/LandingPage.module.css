@@ -1,8 +1,8 @@
 .background{
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  background-image: url('LandingBackground.jpg');
+  align-items: center;
+  background-image: url('/LandingBackground.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -16,7 +16,7 @@
   justify-content: center;
   align-items:center;
   background-image: linear-gradient(155deg, #91020276, #4400e1c7, #0016a59d);
-
+  border: 2px solid rgb(106, 0, 255);
   padding: 20px;
   border-radius: 200px;
   color: rgba(245, 244, 244, 0.84);
@@ -31,15 +31,19 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #880a0ad5;
+    background-image: linear-gradient(25deg, rgba(31, 80, 225, 0.548),rgba(2, 164, 251, 0.869), #0190e9d3 );
     cursor: pointer;
-    transition: border-color 0.25s;
+    transition: 0.25s;
     text-decoration: none;
-    color: #f2ae00;
+    color: #fffefb;
     margin-top: 1em;
   }
   .landingButton:hover {
-    border-color: #21562b;
+    border-color: #6600ff;
+    width: 47%;
+    height: 120px;
+    cursor: pointer;
+    transition: 0.8s;
   }
   .landingButton:focus,
   button:focus-visible {

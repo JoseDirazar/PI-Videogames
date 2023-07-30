@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { searching } from "../redux/actions";
 import style from './CSS/SearchBar.module.css'
@@ -12,6 +12,14 @@ export default function SearchBar({ onSearch }) {
     setName(event.target.value);
   
   }
+
+  useEffect(() => {
+    if(name.length > 1) {
+      dispatch(searching(name.trim()))
+
+    }
+  }, [name])
+
   function handleOnClick() {
     dispatch(searching(name.trim()));
     setName("");
@@ -21,7 +29,7 @@ export default function SearchBar({ onSearch }) {
     if (event.key === "Enter") {
       handleOnClick();
     }
-  }
+  } 
 
   return (
     <div className={style.searchBar}>

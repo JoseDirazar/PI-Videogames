@@ -5,8 +5,10 @@ import Cards from "./components/Cards"
 import CreateVideogameForm from "./components/CreateVideogameForm"
 import NavBar from "./components/NavBar"
 import About from "./components/About"
+import RefreshRedirect from './components/RefreshRedirect';
 
 import {Routes, Route, useLocation, useNavigate } from "react-router-dom"
+
 import { useEffect, useState } from "react"
 import { useDispatch } from 'react-redux';
 import { addVideogames, reload} from './redux/actions';
@@ -19,19 +21,20 @@ function App() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  function goingHome() {
-    setAccessHome(true)
-    navigate("/home")
+  async function goingHome() {
+    try {
+      setAccessHome(true)
+      navigate('/home')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  useEffect(() => {
-    
-    !accessHome && navigate("/")
-  },[accessHome, navigate])
+
 
   useEffect(() => {
     dispatch(addVideogames())
-  }, [dispatch, addVideogames])
+  }, [])
 
   useEffect(() => {
     (async function inEffect() {
@@ -43,11 +46,15 @@ function App() {
     })()
   }, [])
   
-  
+   //  ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT
+ 
+  // ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT
+  console.log(accessHome)
 
   return (
     <div className="App">
       {(location.pathname !== "/") && <NavBar />}
+      <RefreshRedirect />
       <Routes>
         <Route path="/" element={<LandingPage goingHome={goingHome} />}/>
         <Route path="/home" element={<Cards  />} />

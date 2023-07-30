@@ -39,7 +39,7 @@ const reducer = (state = initialState, { type, payload }) => {
         videogamesBackUp: [payload, ...state.videogamesBackUp],
       };
     case FILTER_NAMES:
-      const namesToFilter = state.videogames
+      const namesToFilter = [...state.videogames]
       return {
         ...state,
         videogames:
@@ -49,7 +49,7 @@ const reducer = (state = initialState, { type, payload }) => {
         page: 1
       };
     case FILTER_RATING:
-      const ratingToFilter = state.videogames
+      const ratingToFilter = [...state.videogames]
       return {
         ...state,
         videogames:
