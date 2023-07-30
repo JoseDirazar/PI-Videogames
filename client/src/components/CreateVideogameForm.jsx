@@ -26,9 +26,9 @@ console.log(inputs)
   const [errors, setErrors] = useState({
     nombre: "",
     fecha_lanzamiento: "",
-    plataformas: [],
+    plataformas: '',
     rating: "",
-    generos: [],
+    generos: '',
     imagen: "",
     descripcion: "",
   });
@@ -217,9 +217,9 @@ console.log(inputs)
 
     if (storedFormData) {
       setInputs(storedFormData);
+      setSelectedGenres(storedFormData.generos)
+      setSelectedPlatforms(storedFormData.plataformas)
     }
-    setSelectedGenres(storedFormData.generos)
-    setSelectedPlatforms(storedFormData.plataformas)
   }, []);
 
 
