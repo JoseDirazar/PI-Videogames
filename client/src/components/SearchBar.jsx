@@ -26,12 +26,14 @@ export default function SearchBar(/* { savedName } */) {
     
   }, [savedName]);
   
-  useEffect(() => {
+ /*  useEffect(() => {
     if(name.length > 1) {
       dispatch(searching(name.trim()))
       navigate('/home')
     }
-  }, [name])
+  }, [name]) */
+
+  
 
   /* function handleOnClick() {
     dispatch(searching(name.trim()));

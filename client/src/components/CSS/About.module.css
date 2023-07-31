@@ -96,10 +96,9 @@
 .express {
   background-image: radial-gradient(
       ellipse at center,
-      rgb(54, 51, 253) 0%,
-      rgba(165, 86, 255, 0.993) 70%
-    ),
-    url("/Expressjs.png"); /* La imagen que se muestra encima del fondo */
+      rgba(98, 0, 255, 0.993),
+      rgba(0, 102, 255, 0.993)
+    ); /* La imagen que se muestra encima del fondo */
   /* Ajustamos el tamaño de la imagen para que cubra el contenedor */
   background-size: cover;
   /* Centramos la imagen en el contenedor */
