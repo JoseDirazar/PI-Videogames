@@ -15,12 +15,14 @@ export default function NavBar() {
         <NavLink className={style.link} to="/about">
           About
         </NavLink>
-        <NavLink className={style.link}  to={"/create"}>
-          Create
-        </NavLink>
       </div>
-      <h1>FrikiGamer</h1>
-        { location.pathname !== "/create" && <div className={style.searchBar}> <SearchBar /> </div>}
+      <h1 className={style.nombre} >FrikiGamer</h1>
+      <div className={style.derecha}> 
+        { location.pathname !== "/create"
+        &&  <SearchBar /> }
+        <NavLink className={style.link}  to={"/create"}>Create</NavLink>
+
+      </div>
     </nav>
   );
 }

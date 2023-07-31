@@ -30,11 +30,14 @@ function App() {
     }
   }
 
-
+  
+  const savedName = localStorage.getItem("searchName");
 
   useEffect(() => {
-    dispatch(addVideogames())
-  }, [])
+    if(!savedName) {
+      dispatch(addVideogames())
+    }
+  }, [savedName])
 
   useEffect(() => {
     (async function inEffect() {
@@ -46,14 +49,12 @@ function App() {
     })()
   }, [])
   
-   //  ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT
- 
-  // ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT ---------GPT
+
   console.log(accessHome)
 
   return (
     <div className="App">
-      {(location.pathname !== "/") && <NavBar />}
+      {(location.pathname !== "/") && <NavBar /* savedName={savedName} */ />}
       <RefreshRedirect />
       <Routes>
         <Route path="/" element={<LandingPage goingHome={goingHome} />}/>

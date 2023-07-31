@@ -2,12 +2,15 @@ import style from "./CSS/About.module.css"
 export default function About() {
 
     return(<div className={style.AboutContainer}>
-        <h1 className={style.saludo}>Hello World!</h1>
-        <div className={style.parrafo}>My name is Joseph and this is the stack I used for this proyect:</div>
+        <div className={style.firstParag}>
+            <h1 className={style.saludo}>Hello World!</h1>
+        <div className={style.parrafo}>My name is José, on this project I stacked up all the technologies I've learned at <a href="https://www.soyhenry.com/" target='_blank'><img className={style.henryLogo} src="/henry.png" alt="henry-logo" /></a>'s bootcamp!.</div>
+        <div className={style.parrafo}></div>
+        </div>
         <div className={style.tecnologiasContainer}>
             <div className={style.columnasTec}>Frontend
             <div className={style.tecnologias}>
-            <img src="/nodejs.png" alt="nodejs" />
+            <img className={style.nodeLogo} src="/nodejs.png" alt="nodejs" />
             </div>
 
             <div className={style.tecnologias}>
@@ -39,7 +42,8 @@ export default function About() {
             <div className={style.tecnologias}>
             <img src="/mocha.png" alt="mocha" /></div>
             </div>
-
         </div>
+            <div className={style.shoutout}>Big shoutout to: <a href="https://rawg.io/apidocs" target="_blank">RAWG API </a>to make this project possible</div>
+            <p className={style.footer}>Thanks for visit Freak-Games</p>
     </div>)
 }

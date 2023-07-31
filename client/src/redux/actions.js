@@ -62,7 +62,8 @@ export function filterByGenres(genreString) {
     return async function(dispatch) {
         try {
             let {data} = await axios.get(`http://localhost:3001/dbsearch?nombreGenero=${genreString}`)
-            
+            console.log("string genero<<<<<<<<<<", genreString)
+            console.log(data)
             if(Array.isArray(data) && data.length > 0) {
                 
                 data =  data[0].Videogames.map(function (videogame) {
@@ -77,7 +78,6 @@ export function filterByGenres(genreString) {
                       genres: videogame.genres, // Asigna el nombre del género asociado al objeto final
                     };
                   })
-                
                 return dispatch({
                     type: FILTER_GENRES,
                     payload: [genreString, data]

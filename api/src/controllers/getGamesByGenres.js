@@ -13,11 +13,11 @@ async function getGamesByGenres(req, res) {
                 attributes: ['id', 'nombre', "fecha_lanzamiento", 'imagen', "rating", 'descripcion', 'plataformas']
             }
         })
-
+        console.log(genresArray)
         if(genresArray) {
             return res.status(200).json(genresArray)
         } else {
-            return res.status(200).json({message: 'No hay videojuegos en la DB'})
+            return res.status(308).json({message: 'No hay videojuegos en la DB'})
         }
         
     } catch (error) {

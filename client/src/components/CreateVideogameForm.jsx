@@ -85,26 +85,7 @@ console.log(inputs)
   const [selectedGenres, setSelectedGenres] = useState([]);
 
  
-  const genres = [
-    { id: 4, name: "Action" },
-    { id: 51, name: "Indie" },
-    { id: 3, name: "Adventure" },
-    { id: 5, name: "RPG" },
-    { id: 10, name: "Strategy" },
-    { id: 2, name: "Shooter" },
-    { id: 40, name: "Casual" },
-    { id: 14, name: "Simulation" },
-    { id: 7, name: "Puzzle" },
-    { id: 11, name: "Arcade" },
-    { id: 83, name: "Platformer" },
-    { id: 59, name: "Massively Multiplayer" },
-    { id: 1, name: "Racing" },
-    { id: 15, name: "Sports" },
-    { id: 6, name: "Fighting" },
-    { id: 19, name: "Family" },
-    { id: 28, name: "Board Games" },
-    { id: 34, name: "Educational" },
-    { id: 17, name: "Card" },
+  const genres = [{ id: 4, name: "Action" },{ id: 51, name: "Indie" },{ id: 3, name: "Adventure" },{ id: 5, name: "RPG" },{ id: 10, name: "Strategy" },{ id: 2, name: "Shooter" },{ id: 40, name: "Casual" },{ id: 14, name: "Simulation" },{ id: 7, name: "Puzzle" },{ id: 11, name: "Arcade" },{ id: 83, name: "Platformer" },{ id: 59, name: "Massively Multiplayer" },{ id: 1, name: "Racing" },{ id: 15, name: "Sports" },{ id: 6, name: "Fighting" },{ id: 19, name: "Family" },{ id: 28, name: "Board Games" },{ id: 34, name: "Educational" },{ id: 17, name: "Card" },
   ];
 
   const handleGenreSelect = (event) => {
@@ -134,58 +115,7 @@ console.log(inputs)
   //-------------Genres Handlers----------------------------Genres Handlers----------------------------Genres Handlers---------------
 
   //-------------- Platforms Handlers ------------------- Platforms Handlers ------------------- Platforms Handlers ------------------
-  const allPlatforms = [
-    "PC",
-    "PlayStation 5",
-    "Xbox One",
-    "PlayStation 4",
-    "Xbox Series S/X",
-    "Nintendo Switch",
-    "iOS",
-    "Android",
-    "Nintendo 3DS",
-    "Nintendo DS",
-    "Nintendo DSi",
-    "macOS",
-    "Linux",
-    "Xbox 360",
-    "Xbox",
-    "PlayStation 3",
-    "PlayStation 2",
-    "PlayStation",
-    "PS Vita",
-    "PSP",
-    "Wii U",
-    "Wii",
-    "GameCube",
-    "Nintendo 64",
-    "Game Boy Advance",
-    "Game Boy Color",
-    "Game Boy",
-    "SNES",
-    "NES",
-    "Classic Macintosh",
-    "Apple II",
-    "Commodore / Amiga",
-    "Atari 7800",
-    "Atari 5200",
-    "Atari 2600",
-    "Atari Flashback",
-    "Atari 8-bit",
-    "Atari ST",
-    "Atari Lynx",
-    "Atari XEGS",
-    "Genesis",
-    "SEGA Saturn",
-    "SEGA CD",
-    "SEGA 32X",
-    "SEGA Master System",
-    "Dreamcast",
-    "3DO",
-    "Jaguar",
-    "Game Gear",
-    "Neo Geo",
-  ];
+  const allPlatforms = ["PC","PlayStation 5","Xbox One","PlayStation 4","Xbox Series S/X","Nintendo Switch","iOS","Android","Nintendo 3DS","Nintendo DS","Nintendo DSi","macOS","Linux","Xbox 360","Xbox","PlayStation 3","PlayStation 2","PlayStation","PS Vita","PSP","Wii U","Wii","GameCube","Nintendo 64","Game Boy Advance","Game Boy Color","Game Boy","SNES","NES","Classic Macintosh","Apple II","Commodore / Amiga","Atari 7800","Atari 5200","Atari 2600","Atari Flashback","Atari 8-bit","Atari ST","Atari Lynx","Atari XEGS","Genesis","SEGA Saturn","SEGA CD","SEGA 32X","SEGA Master System","Dreamcast","3DO","Jaguar","Game Gear","Neo Geo"];
 
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const handlePlatformChange = (event) => {
@@ -236,35 +166,35 @@ console.log(inputs)
       <form onSubmit={handleSubmit} className={style.form}>
         <div className={style.inputColumn}>
 
-          <label htmlFor="nombre" className={style.label}> Nombre:{" "} </label>
+          <label htmlFor="nombre" className={style.label}> Title</label>
           <input className={style.input} type="text" key="nombre" name="nombre" value={inputs.nombre} onChange={handleChange} placeholder="Name:" />
           {errors.nombre ? ( <p className={style.errors}>{errors.nombre}</p> ) : (<p></p> )}
 
-          <label htmlFor="fecha_lanzamiento" className={style.label}>Fecha de lanzamiento:{" "} </label>
+          <label htmlFor="fecha_lanzamiento" className={style.label}>Release</label>
           <input className={style.input} type="text" key="fecha_lanzamiento" name="fecha_lanzamiento" value={inputs.fecha_lanzamiento} onChange={handleChange} placeholder="27/7/23" />
           {errors.fecha_lanzamiento ? ( <p className={style.errors}>{errors.fecha_lanzamiento}</p>) : ( <p></p>)}
 
-          <label htmlFor="rating" className={style.label}>Rating:{" "}</label>
-          <input className={style.input} type="text" key="rating" name="rating" value={inputs.rating} onChange={handleChange} placeholder="0"/>
+          <label htmlFor="rating" className={style.label}>Rating</label>
+          <input className={style.input} type="text" key="rating" name="rating" value={inputs.rating} onChange={handleChange} placeholder=" 0"/>
           {errors.rating ? (<p className={style.errors}>{errors.rating}</p>) : (<p></p>)}
 
-          <label htmlFor="imagen" className={style.label}>Imagen:{" "}</label>
-          <input className={style.input} type="text" key="imagen" name="imagen" value={inputs.imagen} onChange={handleChange} placeholder="http://www.url.com/myVideogame.png"/>
+          <label htmlFor="imagen" className={style.label}>Image</label>
+          <input className={style.input} type="text" key="imagen" name="imagen" value={inputs.imagen} onChange={handleChange} placeholder=" http://www.url.com/..."/>
           {errors.imagen ? (<p className={style.errors}>{errors.imagen}</p>) : (<p></p>)}
 
-          <label htmlFor="descripcion" className={style.label}>Descripcion:{" "}</label>
-          <textarea className={style.textarea} type="text" key="descripcion" name="descripcion" value={inputs.descripcion} onChange={handleChange} placeholder="Ingresar Descripción..." />
+          <label htmlFor="descripcion" className={style.label}>Description</label>
+          <textarea className={style.textarea} type="text" key="descripcion" name="descripcion" value={inputs.descripcion} onChange={handleChange} placeholder=" enter description..." />
           {errors.descripcion ? (<p className={style.errors}>{errors.descripcion}</p>) : (<p></p>)}
 
-          <button type="submit" className={style.button} disabled={!enableSubmit}> Crear </button>
+          <button type="submit" className={style.button} disabled={!enableSubmit}> Submit </button>
         </div>
         <div className={style.secondColumn}>
 
           <div className={style.generos}>
 
-            <label htmlFor="generos" className={style.label}>Géneros</label>
+            <label htmlFor="generos" className={style.label}>Genres</label>
             <select name="generos" onChange={handleGenreSelect} className={style.input} defaultValue="" >
-              <option value="" disabled> Seleccionar genero</option>
+              <option value="" disabled> Select genres</option>
               {genres.map((genre) => ( <option key={genre.id} value={genre.id}>{genre.name}</option> ))} 
             </select>
 
@@ -274,12 +204,12 @@ console.log(inputs)
           </div>
           <div className={style.plataformas}>
 
-          <label className={style.label}>Selecciona una plataforma</label>
+          <label className={style.label}>Platforms</label>
           <select onChange={handlePlatformChange} className={style.input} defaultValue="" >
-            <option value="" disabled>Selecciona una plataforma</option>
+            <option value="" disabled>Select platforms</option>
             {allPlatforms.map((platform) => ( <option key={platform} value={platform}>{platform}</option>))}
           </select>
-          {selectedPlatforms.length < 1 ? null : ( <ul className={style.unlistOptions}> {selectedPlatforms.map((platform) => ( <li key={platform} className={style.genreTag}>{platform} <button className={style.removeButton} onClick={() => handleRemovePlatform(platform)} >x</button> </li> ))}
+          {selectedPlatforms.length < 1 ? null : ( <ul className={style.unlistOptions}> {selectedPlatforms.map((platform) => ( <li key={platform} className={style.genreTag}>{platform} <button className={style.removeButton} onClick={() => handleRemovePlatform(platform)} >X</button> </li> ))}
             </ul>
           )}
           </div>

@@ -38,11 +38,6 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull: true
     },
-    /* genres:{
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
-      defaultValue: [],
-      allowNull: true
-    } */
   },{
     timestamps: false
   });

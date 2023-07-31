@@ -14,7 +14,7 @@ export default function Cards() {
   
   const dispatch = useDispatch();
 
-  let videoGamesPage = videogames;
+  let videoGamesPage = [];
   let cantPage = 1;
   if (videogames.length > 1) {
     const cantCharPerPage = 15;
@@ -53,7 +53,7 @@ export default function Cards() {
       <div className={style.filterOptions}>
         <p className={style.ordenarPor}>Ordenar por: </p>
         <div className={style.options}>
-          <label htmlFor="a-z">Alfabeto </label>
+          <label htmlFor="a-z">Abc </label>
           <select name="a-z" onChange={handleOrder} defaultValue="">
             <option value="" disabled>
               --Select--
@@ -64,7 +64,7 @@ export default function Cards() {
         </div>
 
         <div className={style.options}>
-          <label htmlFor="genero">Genero </label>
+          <label htmlFor="genero">Genres </label>
           <select name="genero" onChange={handleGenres} defaultValue="">
             <option value="" disabled>
               --Select--

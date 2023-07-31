@@ -60,7 +60,7 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     case FILTER_GENRES:
       let genresToFilter = [...state.videogamesBackUp]
-      if(Array.isArray(payload)) {
+      if(Array.isArray(payload) & !state.videogames.find(game => game.id === payload[1].id)) {
         genresToFilter = genresToFilter.filter((videogame) => videogame.genres.find((genre) => genre === payload[0]))
         
         return {

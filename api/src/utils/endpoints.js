@@ -108,6 +108,7 @@ async function getGenres() {
     //console.log(genresArray)
     return genresArray;
   } catch (error) {
+    console.log(error)
     throw new Error(error)
   }
 }
