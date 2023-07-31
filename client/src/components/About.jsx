@@ -4,7 +4,7 @@ export default function About() {
     return(<div className={style.AboutContainer}>
         <div className={style.firstParag}>
             <h1 className={style.saludo}>Hello World!</h1>
-        <div className={style.parrafo}>My name is José, on this project I stacked up all the technologies I've learned at <a href="https://www.soyhenry.com/" target='_blank'><img className={style.henryLogo} src="/henry.png" alt="henry-logo" /></a>'s bootcamp!.</div>
+        <div className={style.parrafo}>My name is José, and for this project, I've stacked up all the technologies I've learned at <a href="https://www.soyhenry.com/" target='_blank'><img className={style.henryLogo} src="/henry.png" alt="henry-logo" /></a>'s bootcamp!</div>
         <div className={style.parrafo}></div>
         </div>
         <div className={style.tecnologiasContainer}>
@@ -44,6 +44,6 @@ export default function About() {
             </div>
         </div>
             <div className={style.shoutout}>Big shoutout to: <a href="https://rawg.io/apidocs" target="_blank">RAWG API </a>to make this project possible</div>
-            <p className={style.footer}>Thanks for visit Freak-Games</p>
+            <p className={style.footer}>Thanks for visit Freak-Gamer</p>
     </div>)
 }
