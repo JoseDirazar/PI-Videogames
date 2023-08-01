@@ -14,12 +14,13 @@ async function getVideogamesController(req, res) {
       ],
     });
 
-    console.log(videogamesWithGenres);
-
+    
+    
     if (videogamesWithGenres) {
       videogamesWithGenres = videogamesWithGenres.map(function (videogame) {
+        const { Genres, ...remainingDataValues } = videogame.dataValues;
         return {
-          ...videogame.dataValues,
+          ...remainingDataValues,
           genres: videogame.dataValues.Genres.map((genre) => genre.nombre),
         };
       });

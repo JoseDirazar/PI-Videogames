@@ -5,8 +5,8 @@ async function getVideogameByQueryController(req,res) {
     try {
         const {name} = req.query
         
-        const arrayOfSearchGame = await searchVideogame(name)
-        
+        let arrayOfSearchGame = await searchVideogame(name)
+        arrayOfSearchGame = arrayOfSearchGame.slice(0, 15)
         
         const busquedaenDB = await Videogame.findOne({
             where:{

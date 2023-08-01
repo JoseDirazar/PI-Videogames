@@ -3,7 +3,7 @@ const { Videogame } = require("../db")
 async function postVideogameController(req,res) {
     try {
         const { id, nombre, descripcion, plataformas, imagen, fecha_lanzamiento, rating, generos } = req.body
-        console.log(id, nombre, descripcion, plataformas, imagen, fecha_lanzamiento, rating, generos)
+        
         if(!id || !nombre || !imagen || !generos ) return res.status(404).json({error: `Los campos: ID, nombre, imagen, generos, son requeridos.`})
         const genresID = generos.map(obj => obj.id)
         const genresName = generos.map(obj => obj.name)
@@ -28,6 +28,7 @@ async function postVideogameController(req,res) {
 
         const gameCreated = await Videogame.create(videogame)
         await gameCreated.addGenres(genresID)
+
         return res.status(200).json({...videogame, genres: genresName})     
     } catch (error) {
         console.log(error)

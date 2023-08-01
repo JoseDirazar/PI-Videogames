@@ -13,7 +13,6 @@ router.post("/videogame", postVideogameController)
 
 router.get("/genres", genresController)
 
-router.get('/dbsearch', getGamesByGenres)
 
 
 
