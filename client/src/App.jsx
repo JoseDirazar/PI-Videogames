@@ -34,10 +34,8 @@ function App() {
   const savedName = localStorage.getItem("searchName");
 
   useEffect(() => {
-    if(!savedName) {
-      dispatch(addVideogames())
-    }
-  }, [savedName])
+    dispatch(addVideogames()) 
+  }, [])
 
   useEffect(() => {
     (async function inEffect() {

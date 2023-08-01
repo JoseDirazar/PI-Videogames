@@ -12,26 +12,21 @@ export default function SearchBar(/* { savedName } */) {
   function handleOnChange(event) {
     setName(event.target.value);
     localStorage.setItem("searchName", event.target.value);
-    
   }
+
   const savedName = localStorage.getItem("searchName");
 
   useEffect(() => {
-    
     if(savedName){
-
       setName(savedName);
-    }
-    
-    
+    }    
   }, [savedName]);
   
- /*  useEffect(() => {
+  useEffect(() => {
     if(name.length > 1) {
       dispatch(searching(name.trim()))
-      navigate('/home')
     }
-  }, [name]) */
+  }, [name])
 
   
 

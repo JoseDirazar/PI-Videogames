@@ -78,22 +78,22 @@ export default function Detail() {
           <div className={style.parrafos}>
           <div className={style.dataParrafos}>
               <h3>Rating</h3>
-              <div className={style.parrafosPGrupo2}> {videogame.rating}</div>
-              <p></p>
+              <p className={style.parrafosPGrupo2}> {videogame.rating}</p>
+              <p className={style.parrafosGrupo2}></p>
               <h3>Lanzamiento</h3>
-              <div className={style.parrafosPGrupo2}> {videogame.fecha_lanzamiento}</div>
+              <p className={style.parrafosPGrupo2}> {videogame.fecha_lanzamiento}</p>
             </div>  
             <div className={style.dataParrafos}>
               <h3>Plataformas</h3>
-              <div> {videogame.plataformas}</div>
+              <p> {videogame.plataformas}</p>
             </div>
             <div className={style.dataParrafos}>
               <h3>Generos</h3>
-              <div> {videogame.genres}</div>
+              <p> {videogame.genres}</p>
             </div>
             <div className={style.dataParrafos}>
               <h3>Desarrolladores</h3>
-              <div> {videogame.desarrolladores}</div>
+              <p> {videogame.desarrolladores}</p>
             </div>
           </div>
         </div>

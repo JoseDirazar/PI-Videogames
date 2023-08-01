@@ -59,25 +59,15 @@ const reducer = (state = initialState, { type, payload }) => {
         page: 1
       };
     case FILTER_GENRES:
-      let genresToFilter = [...state.videogamesBackUp]
-      if(Array.isArray(payload) & !state.videogames.find(game => game.id === payload[1].id)) {
-        genresToFilter = genresToFilter.filter((videogame) => videogame.genres.find((genre) => genre === payload[0]))
-        
-        return {
-          ...state,
-          videogames: [...genresToFilter, ...payload[1]],
-          page: 1
-        }
-      } else {
-        
-        return {
+      let genresToFilter = [...state.videogamesBackUp].filter((videogame) => videogame.genres.find((genre) => genre === payload))
+      
+      return {
         ...state,
-        videogames: genresToFilter.filter((videogame) =>
-          videogame.genres.find((genre) => genre === payload)
-        ),
-        page: 1
-      };
+        videogames: genresToFilter,
+        page: 1    
       }
+
+
     case LOOKING:
       return {
         ...state,

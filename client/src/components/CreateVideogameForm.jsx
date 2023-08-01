@@ -22,7 +22,7 @@ export default function CreateVideogameForm() {
     imagen: "",
     descripcion: "",
   });
-console.log(inputs)
+
   const [errors, setErrors] = useState({
     nombre: "",
     fecha_lanzamiento: "",

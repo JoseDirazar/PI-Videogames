@@ -16,7 +16,7 @@ export default function NavBar() {
           About
         </NavLink>
       </div>
-      <h1 className={style.nombre} >FrikiGamer</h1>
+      <h1 className={style.nombre} >Freak-Gamer</h1>
       <div className={style.derecha}> 
         { location.pathname !== "/create"
         &&  <SearchBar /> }
