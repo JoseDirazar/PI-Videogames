@@ -12,9 +12,7 @@ async function getVideogamesController(req, res) {
           attributes: ["nombre"],
         },
       ],
-    });
-
-    
+    });   
     
     if (videogamesWithGenres) {
       videogamesWithGenres = videogamesWithGenres.map(function (videogame) {
@@ -24,12 +22,13 @@ async function getVideogamesController(req, res) {
           genres: videogame.dataValues.Genres.map((genre) => genre.nombre),
         };
       });
+      
       return res
         .status(200)
-        .json({ results: [...videogamesWithGenres, ...videogamesArray] });
+        .json({ results: [...videogamesWithGenres, ...videogamesArray], backup: videogamesWithGenres });
     }
-    console.log(videogamesArray);
-    return res.status(200).json({ results: videogamesArray });
+    
+    return res.status(200).json({ results: videogamesArray, backup:[] });
   } catch (error) {
     console.log(error);
     return res.status(404).json({ error: error.message });

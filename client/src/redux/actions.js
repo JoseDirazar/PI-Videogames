@@ -1,24 +1,16 @@
-import {
-  ADD_GAMES,
-  FILTER_GENRES,
-  FILTER_NAMES,
-  FILTER_RATING,
-  RESET,
-  PREV,
-  NEXT,
-  LOOKING,
-  RELOAD,
-  POST_VIDEOGAME,
-  
-} from "./actionTypes";
+import {ADD_GAMES,FILTER_GENRES,FILTER_NAMES,FILTER_RATING,RESET,PREV,NEXT,LOOKING,RELOAD,POST_VIDEOGAME,SHOW_DB_GAMES} from "./actionTypes";
 import axios from "axios"
+
+export function showDBgames() {
+    return {
+        type: SHOW_DB_GAMES,
+    }
+}
 
 export function postVideogame(videogameCreado) {
     return async function(dispatch) {
-        try {
-           
+        try {        
             const {data} = await axios.post('http://localhost:3001/videogame', videogameCreado)
-            console.log(data)
             return dispatch({
                 type: POST_VIDEOGAME,
                 payload: data
@@ -33,10 +25,9 @@ export function addVideogames() {
     return async function(dispatch) {
         try {
             const {data} = await axios.get('http://localhost:3001/videogames')
-            
             return dispatch({
                 type: ADD_GAMES,
-                payload: data.results
+                payload: data
             })
         } catch (error) {
             console.log(error)
@@ -68,15 +59,15 @@ export function filterByGenres(genreString) {
 export function searching(name) {
     return async function(dispatch) {
         try {
-            if(/^\d+/.test(name)) { // name = un id
+            if(/^\d+/.test(name)) { // name es id
                 const { data } = await axios.get(`http://localhost:3001/videogames/${name}`)
                 return dispatch({
                     type: LOOKING,
-                    payload: data
+                    payload: [data]
                 })
             }
+
             const { data } = await axios.get(`http://localhost:3001/search?name=${name}`)
-            
             return dispatch({
                 type: LOOKING,
                 payload: data.results

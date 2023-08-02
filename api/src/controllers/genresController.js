@@ -3,8 +3,7 @@ const {Genres} = require("../db")
 
 async function genresController(req,res) {
     try {
-        const genres = await getGenres()
-        
+        const genres = await getGenres()  
         const chequeandoGenres = await Genres.count()
         if(chequeandoGenres === 0) {
             await Genres.bulkCreate(genres)
@@ -17,8 +16,6 @@ async function genresController(req,res) {
     } catch (error) {
         return res.status(404).json({error: error.message})
     }
-    
-
 }
 
 module.exports = {

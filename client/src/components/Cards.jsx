@@ -9,6 +9,7 @@ import {filterByName,filterByGenres, filterByRating, reset } from "../redux/acti
 
 
 export default function Cards() {
+
   const videogames = useSelector((state) => state.videogames)
   const page = useSelector(state => state.page)
   
@@ -16,6 +17,7 @@ export default function Cards() {
 
   let videoGamesPage = [];
   let cantPage = 1;
+
   if (videogames.length > 1) {
     const cantCharPerPage = 15;
     let desde = (page - 1) * cantCharPerPage;
@@ -23,6 +25,8 @@ export default function Cards() {
 
     cantPage = Math.floor(videogames.length / cantCharPerPage);
     videoGamesPage = videogames?.slice(desde, hasta);
+  } else {
+    videoGamesPage = [...videogames]
   }
 
   function handleOrder(event) {
@@ -51,7 +55,7 @@ export default function Cards() {
   return (
     <div className={style.cardsContainer}>
       <div className={style.filterOptions}>
-        <p className={style.ordenarPor}>Ordenar por: </p>
+        <p className={style.ordenarPor}>Sort by: </p>
         <div className={style.options}>
           <label htmlFor="a-z">Abc </label>
           <select name="a-z" onChange={handleOrder} defaultValue="">
@@ -96,12 +100,12 @@ export default function Cards() {
             <option value="" disabled>
               --Select--
             </option>
-            <option value="ASC">Ascendente</option>
-            <option value="DES">Descendente</option>
+            <option value="ASC">Lowest</option>
+            <option value="DES">Best</option>
           </select>
         </div>
 
-        <button className={style.button} onClick={handleReset}> Inicio </button>
+        <button className={style.button} onClick={handleReset}> Reset </button>
       </div>
 
       <div className={style.cards}>

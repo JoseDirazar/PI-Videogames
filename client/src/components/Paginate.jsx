@@ -21,7 +21,7 @@ export default function Paginate({ page, cantPage }) {
           </>
         )}
         <h3>{page}</h3>
-        {page > cantPage ? (
+        {page >= cantPage ? (
           <>
             <div></div>
             <div></div>

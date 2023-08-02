@@ -1,24 +1,19 @@
-import {
-  RELOAD,
-  ADD_GAMES,
-  FILTER_GENRES,
-  FILTER_NAMES,
-  FILTER_RATING,
-  RESET,
-  PREV,
-  NEXT,
-  LOOKING,
-  POST_VIDEOGAME,
-} from "./actionTypes";
+import {RELOAD,ADD_GAMES,FILTER_GENRES,FILTER_NAMES,FILTER_RATING,RESET,PREV,NEXT,LOOKING,POST_VIDEOGAME,SHOW_DB_GAMES,} from "./actionTypes";
 
 const initialState = {
   videogames: [],
   videogamesBackUp: [],
+  gamesFromDB: [],
   page: 1,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case SHOW_DB_GAMES:
+      return{
+        ...state,
+        videogames: state.gamesFromDB
+      }
     case POST_VIDEOGAME:
       return {
         ...state,
@@ -26,18 +21,12 @@ const reducer = (state = initialState, { type, payload }) => {
         videogamesBackUp: [payload, ...state.videogamesBackUp],
       };
     case ADD_GAMES:
-      if (Array.isArray(payload)) {
-        return {
-          ...state,
-          videogames: payload,
-          videogamesBackUp: payload,
-        };
-      }
       return {
         ...state,
-        videogames: [payload, ...state.videogames],
-        videogamesBackUp: [payload, ...state.videogamesBackUp],
-      };
+        videogames: payload.results,
+        videogamesBackUp: payload.results,
+        gamesFromDB: payload.backup
+      };  
     case FILTER_NAMES:
       const namesToFilter = [...state.videogames]
       return {
@@ -59,15 +48,12 @@ const reducer = (state = initialState, { type, payload }) => {
         page: 1
       };
     case FILTER_GENRES:
-      let genresToFilter = [...state.videogamesBackUp].filter((videogame) => videogame.genres.find((genre) => genre === payload))
-      
+      let genresToFilter = [...state.videogamesBackUp].filter((videogame) => videogame.genres.find((genre) => genre === payload))    
       return {
         ...state,
         videogames: genresToFilter,
         page: 1    
       }
-
-
     case LOOKING:
       return {
         ...state,

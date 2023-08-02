@@ -7,8 +7,8 @@ const { API_KEY } = process.env;
 
 async function getVideogames() {
   try {
-    let response = [];
     let allResponse = [];
+    let response = [];
 
     response = await Promise.all([axios.get(`${URL}games?key=${API_KEY}&page=${1}`),
       axios.get(`${URL}games?key=${API_KEY}&page=${2}`),
@@ -17,14 +17,12 @@ async function getVideogames() {
       axios.get(`${URL}games?key=${API_KEY}&page=${5}`)]
     );
       
-       
     response.forEach(element => {
       allResponse = allResponse.concat(element.data.results);
     });
    
     const mergedArray = [];
 
-    
     allResponse.forEach((videogame) => {
       const videogameBoilerplate = {
         id: videogame.id,
@@ -38,7 +36,7 @@ async function getVideogames() {
       };
       mergedArray.push(videogameBoilerplate);  
     });
-    if(!mergedArray) throw new Error('Eloooooo')
+    if(!mergedArray) throw new Error('Ke pso')
     return mergedArray;
   } catch (error) {
     throw new Error({error: error.message})
@@ -48,7 +46,7 @@ async function getVideogames() {
 async function getVideogameById(id) {
   try {
     const { data } = await axios.get(`${URL}games/${id}?key=${API_KEY}`);
-    //console.log(data)
+
     const videogame = {
       id: data.id,
       nombre: data.name,
@@ -63,8 +61,8 @@ async function getVideogameById(id) {
       tiendas: data.stores.map(arr => `${arr.store.name}: ${arr.store.domain}`)
       /* requisitos: data.platforms.find(arr => arr.platform.name === "PC").requirements */
     }
-    return videogame;
-    
+
+    return videogame;  
   } catch (error) {
     console.log(error)
     throw new Error(error)
@@ -74,7 +72,7 @@ async function getVideogameById(id) {
 async function searchVideogame(videogameName) {
   try {
     const { data } = await axios.get(`${URL}games?search=${videogameName}&key=${API_KEY}`);
-    //console.log(data.results)
+
     let arrayOfSearchGame = data.results.map(videogame => ({
       id: videogame.id,
       nombre: videogame.name,
@@ -84,11 +82,9 @@ async function searchVideogame(videogameName) {
       plataformas: videogame.platforms.map(platforms => platforms.platform.name),
       genres: videogame.genres.map(genre => genre.name),
     }));  
-    console.log(arrayOfSearchGame)
-    //const genresOfFirstResult = data.results[0].genres.map(genre=>genre.id)
+
     return arrayOfSearchGame
   } catch (error) {
-    
     throw new Error(error)
   }
 }
@@ -96,8 +92,9 @@ async function searchVideogame(videogameName) {
 async function getGenres() {
   try {
     const { data } = await axios.get(`${URL}genres?key=${API_KEY}`);
-    //console.log(data);
+
     const genresArray = [];
+
     data.results.forEach((genre) => {
       const genreBoilerplate = {
         id: genre.id,
@@ -105,10 +102,9 @@ async function getGenres() {
       };
       genresArray.push(genreBoilerplate);
     });
-    //console.log(genresArray)
+
     return genresArray;
   } catch (error) {
-    console.log(error)
     throw new Error(error)
   }
 }

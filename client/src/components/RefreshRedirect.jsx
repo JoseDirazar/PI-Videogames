@@ -15,7 +15,6 @@ const RefreshRedirect = () => {
     }
   }, []);
 
-  // Efecto para escribir el sessionStorage mientras el usuario cambia de ruta
   useEffect(() => {
     sessionStorage.setItem('lastPath', location.pathname);
   }, [location.pathname]);

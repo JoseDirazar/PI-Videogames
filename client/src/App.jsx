@@ -9,29 +9,20 @@ import RefreshRedirect from './components/RefreshRedirect';
 
 import {Routes, Route, useLocation, useNavigate } from "react-router-dom"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch } from 'react-redux';
-import { addVideogames, reload} from './redux/actions';
+import { addVideogames } from './redux/actions';
 import axios from "axios"
 
-function App() {
+export default function App() {
   
-  const [accessHome, setAccessHome] = useState(false)
   const location = useLocation();
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  async function goingHome() {
-    try {
-      setAccessHome(true)
-      navigate('/home')
-    } catch (error) {
-      console.log(error)
-    }
+  function goingHome() {
+    navigate('/home')
   }
-
-  
-  const savedName = localStorage.getItem("searchName");
 
   useEffect(() => {
     dispatch(addVideogames()) 
@@ -48,11 +39,10 @@ function App() {
   }, [])
   
 
-  console.log(accessHome)
 
   return (
     <div className="App">
-      {(location.pathname !== "/") && <NavBar /* savedName={savedName} */ />}
+      {(location.pathname !== "/") && <NavBar />}
       <RefreshRedirect />
       <Routes>
         <Route path="/" element={<LandingPage goingHome={goingHome} />}/>
@@ -65,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+
