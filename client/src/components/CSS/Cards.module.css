@@ -84,3 +84,10 @@
     font-weight: bold;
     font-size: 2vh;
   }
+
+  .notFound{
+    font-size: 7vh;
+    background-image: linear-gradient(50deg, rgba(154, 4, 254, 0.548), rgba(203, 9, 9, 0.634), #0225c4c4 );
+    padding: 3vh;
+    border-radius: 500px;
+  }

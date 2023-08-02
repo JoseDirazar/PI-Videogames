@@ -18,6 +18,8 @@ export default function Cards() {
   let videoGamesPage = [];
   let cantPage = 1;
 
+ 
+
   if (videogames.length > 1) {
     const cantCharPerPage = 15;
     let desde = (page - 1) * cantCharPerPage;
@@ -26,7 +28,7 @@ export default function Cards() {
     cantPage = Math.floor(videogames.length / cantCharPerPage);
     videoGamesPage = videogames?.slice(desde, hasta);
   } else {
-    videoGamesPage = [...videogames]
+    
   }
 
   function handleOrder(event) {
@@ -109,20 +111,20 @@ export default function Cards() {
       </div>
 
       <div className={style.cards}>
-        {videoGamesPage.map((videogame, index) => {
+        {videoGamesPage.length > 1 
+        ? videoGamesPage.map((videogame, index) => {
           return (
             <Card
               key={index}
               id={videogame.id}
               nombre={videogame.nombre}
-              plataformas={videogame.plataformas}
               imagen={videogame.imagen}
-              fecha_lanzamiento={videogame.fecha_lanzamiento}
-              rating={videogame.rating}
-              genres={videogame.genres}
             />
           );
-        })}
+        })
+        : <div className={style.notFound}>No videogames found.</div>
+
+      }
       </div>
 
       <Paginate page={page} cantPage={cantPage} />

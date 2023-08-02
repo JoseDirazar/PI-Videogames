@@ -30,6 +30,7 @@ export default function SearchBar() {
 
   function handleOnKeyPress(event) {
     if (event.key === "Enter") {
+      dispatch(searching(name.trim()))
       setName("");
     localStorage.removeItem("searchName");
     navigate('/home')

@@ -39,7 +39,7 @@ export default function Detail() {
               );
             }
           );
-        console.log(data.tiendas);
+        
         if (data.tiendas)
           data.tiendas = data.tiendas.map((tienda, index) => {
             const [nombre, link] = tienda.split(": ");
@@ -102,7 +102,7 @@ export default function Detail() {
             </div>
             <div className={style.dataParrafos}>
               <h3>Generos</h3>
-              <p> {videogame.genres}</p>
+              <div> {videogame.genres}</div>
             </div>
             <div className={style.dataParrafos}>
               <h3>Desarrolladores</h3>
