@@ -92,14 +92,14 @@ export default function CreateVideogameForm() {
     const genreId = parseInt(event.target.value);
     const selectedGenre = genres.find((genre) => genre.id === genreId);
 
-    if (selectedGenre && !selectedGenres.includes(selectedGenre)) {
+    if (!selectedGenres.find(genre => genre.id === selectedGenre.id)) {
       setSelectedGenres((prevGenres) => [...prevGenres, selectedGenre]);
-      if (!inputs.generos.find((genre) => genre === genreId)) {
-        setInputs({
-          ...inputs,
-          generos: [...inputs.generos, selectedGenre], // Setear el ID del genero en lugar del nombre para poder relacionarla en la DB con la tabla Genres
-        });
-      }
+    }
+    if(!inputs.generos.find(genre => genre.id === selectedGenre.id)){
+      setInputs({
+        ...inputs,
+        generos: [...inputs.generos, selectedGenre], // Setear el ID del genero en lugar del nombre para poder relacionarla en la DB con la tabla Genres
+      });   
     }
   };
 

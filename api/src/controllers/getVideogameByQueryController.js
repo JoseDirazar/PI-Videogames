@@ -20,7 +20,6 @@ async function getVideogameByQueryController(req, res) {
       ],
     });
 
-    console.log(arrayOfSearchGame);
     if (busquedaenDB) {
       return res
         .status(200)

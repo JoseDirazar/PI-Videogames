@@ -1,6 +1,8 @@
 const axios = require("axios");
 const URL = "https://api.rawg.io/api/";
-
+const {rescaleImageWithCanvas} = require('./resize')
+const path = require("path");
+const fs = require("fs");
 
 require("dotenv").config();
 const { API_KEY } = process.env;
@@ -20,7 +22,7 @@ async function getVideogames() {
     response.forEach(element => {
       allResponse = allResponse.concat(element.data.results);
     });
-   
+
     const mergedArray = [];
 
     allResponse.forEach((videogame) => {
@@ -36,9 +38,36 @@ async function getVideogames() {
       };
       mergedArray.push(videogameBoilerplate);  
     });
+
+   
+   /*  const mergedArray = await Promise.all(
+      allResponse.map(async (videogame) => {
+        // Call rescaleImageWithCanvas to get the rescaled image buffer and generated name
+        const { buffer, name } = await rescaleImageWithCanvas(
+          videogame.background_image,
+          300,
+          300
+        );
+    
+        // Convert the buffer to base64
+        const base64Image = buffer.toString("base64");
+    
+        return {
+          id: videogame.id,
+          nombre: videogame.name,
+          plataformas_padres: videogame.parent_platforms.map((p) => p.platform.name),
+          plataformas: videogame.platforms.map((p) => p.platform.name),
+          imagen: `data:image/jpeg;base64,${base64Image}`, // Use base64 representation with proper data URI
+          fecha_lanzamiento: videogame.released,
+          rating: videogame.rating,
+          genres: videogame.genres.map((genre) => genre.name),
+        };
+      })
+    );     */
     if(!mergedArray) throw new Error('Ke pso')
     return mergedArray;
   } catch (error) {
+    console.log(error)
     throw new Error({error: error.message})
   }
 }

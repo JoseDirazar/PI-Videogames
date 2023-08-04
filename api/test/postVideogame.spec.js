@@ -25,7 +25,7 @@ describe('Videogame routes', () => {
   describe('POST /videogame', () => {
     it('should create a videogame with the required properties', async () => {
       const videogameData = {
-        id: 1,
+        id: 1800001,
         nombre: 'Super Mario Bros',
         imagen: 'https://www.elpais.com.co/resizer/mBPF0ANIhK9C8OBjoh-0-3RA_5c=/1280x720/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/ES4YNNALTVAY3I5RENIXL5WIQI.jpg',
         generos:   [{ id: 4, name: 'Action' },
@@ -61,7 +61,7 @@ describe('Videogame routes', () => {
 
     it('should return 404 if videogame already exists', async () => {
       const existingVideogameData = {
-        id: 1,
+        id: 1800001,
         nombre: 'Super Mario Bros',
         imagen: 'https://www.elpais.com.co/resizer/mBPF0ANIhK9C8OBjoh-0-3RA_5c=/1280x720/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/ES4YNNALTVAY3I5RENIXL5WIQI.jpg',
         generos: [{ id: 4, name: 'Action' },

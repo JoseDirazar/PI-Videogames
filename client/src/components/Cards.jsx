@@ -18,18 +18,14 @@ export default function Cards() {
   let videoGamesPage = [];
   let cantPage = 1;
 
- 
-
-  if (videogames.length > 1) {
+  if (videogames.length > 0) {
     const cantCharPerPage = 15;
     let desde = (page - 1) * cantCharPerPage;
     let hasta = page * cantCharPerPage;
 
     cantPage = Math.floor(videogames.length / cantCharPerPage);
     videoGamesPage = videogames?.slice(desde, hasta);
-  } else {
-    
-  }
+  } 
 
   function handleOrder(event) {
     dispatch(filterByName(event.target.value));
@@ -111,7 +107,7 @@ export default function Cards() {
       </div>
 
       <div className={style.cards}>
-        {videoGamesPage.length > 1 
+        {videoGamesPage.length > 0
         ? videoGamesPage.map((videogame, index) => {
           return (
             <Card

@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
       defaultValue: [] 
     },
     imagen:{
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
       validate:{
         isUrl: true,
